@@ -863,7 +863,7 @@ End
 
 	#tag MenuHandler
 		Function FileDonate() As Boolean Handles FileDonate.Action
-		  System.GotoURL("")
+		  System.GotoURL("https://alwaysoffline.gumroad.com/l/LACE")
 		  
 		End Function
 	#tag EndMenuHandler
