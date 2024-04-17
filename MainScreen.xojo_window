@@ -854,17 +854,16 @@ End
 #tag EndDesktopWindow
 
 #tag WindowCode
-	#tag Event
-		Sub Opening()
-		  
-		End Sub
-	#tag EndEvent
-
-
 	#tag MenuHandler
 		Function FileDonate() As Boolean Handles FileDonate.Action
-		  System.GotoURL("https://alwaysoffline.gumroad.com/l/LACE")
+		  System.GotoURL("")
 		  
+		End Function
+	#tag EndMenuHandler
+
+	#tag MenuHandler
+		Function FileExportLogs() As Boolean Handles FileExportLogs.Action
+		  LoggingHandler.ExportLog("LACE_LOG_" + DateTime.Now.ToString + ".txt")
 		End Function
 	#tag EndMenuHandler
 
@@ -902,14 +901,14 @@ End
 	#tag Event
 		Sub Pressed()
 		  ClearGui
-		  Var selected As FolderItem= SelectTargetDialog("home",True)
+		  Var selected As FolderItem= Utils.SelectTargetDialog("home",True)
 		  
 		  If(selected<>Nil) Then
 		    txt_FileSelected.Text= selected.NativePath
 		    
 		    //last
 		    If(Self.txt_FileSelected.Text<>"") Then
-		      LoadFileToEditor(txt_FileSelected.Text)
+		      TargetHandler.LoadFileToEditor(txt_FileSelected.Text)
 		    ElseIf(Self.txt_FileSelected.Text="") Then
 		      cust_Permissions.clearChecks
 		      Self.txt_Owner.Text=""
@@ -976,8 +975,8 @@ End
 #tag Events btn_Apply
 	#tag Event
 		Sub Pressed()
-		  ApplyPermissions
 		  ApplyOwnerGroup
+		  ApplyPermissions
 		  ApplyAcl
 		  ReloadAcl
 		End Sub
@@ -987,14 +986,14 @@ End
 	#tag Event
 		Sub Pressed()
 		  ClearGui
-		  Var selected As FolderItem= SelectTargetDialog("home",False)
+		  Var selected As FolderItem= Utils.SelectTargetDialog("home",False)
 		  
 		  If(selected<>Nil) Then
 		    txt_FileSelected.Text= selected.NativePath
 		    
 		    //last
 		    If(Self.txt_FileSelected.Text<>"") Then
-		      LoadFileToEditor(txt_FileSelected.Text)
+		      TargetHandler.LoadFileToEditor(txt_FileSelected.Text)
 		    ElseIf(Self.txt_FileSelected.Text="") Then
 		      cust_Permissions.clearChecks
 		      Self.txt_Owner.Text=""
@@ -1003,6 +1002,7 @@ End
 		    
 		    Self.lbl_User.Text="User"
 		    Self.lbl_Group.Text="Group"
+		    LoggingHandler.UpdateLog("Loaded: " + selected.NativePath)
 		  End
 		  
 		End Sub

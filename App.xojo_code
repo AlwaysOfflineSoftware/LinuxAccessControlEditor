@@ -3,16 +3,14 @@ Protected Class App
 Inherits DesktopApplication
 	#tag Event
 		Sub Opening()
-		  // System.Debuglog("setfacl " + """" + "entityType" +_
-		  // ":" + "entityName" + ":" + "accessString" + """ """ + "target" + """")
+		  exportLocation= SpecialFolder.Documents.child("LinuxAccessControlEditor")
 		End Sub
 	#tag EndEvent
 
 
-	#tag Note, Name = To Do
-		
-		- set Access Control List
-	#tag EndNote
+	#tag Property, Flags = &h0
+		exportLocation As FolderItem
+	#tag EndProperty
 
 
 	#tag Constant, Name = kEditClear, Type = String, Dynamic = False, Default = \"&Delete", Scope = Public

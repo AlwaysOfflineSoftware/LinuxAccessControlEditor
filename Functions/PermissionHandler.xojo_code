@@ -23,6 +23,7 @@ Protected Module PermissionHandler
 		      MainScreen.lbl_CurrentPermDisplay.Text= _
 		      GetCurrentPermissions(loadedItem)
 		    End
+		    LoggingHandler.UpdateLog("APPLIED: Permissions Changed to " + newPermissions)
 		  End
 		End Sub
 	#tag EndMethod
@@ -36,9 +37,9 @@ Protected Module PermissionHandler
 	#tag Method, Flags = &h0
 		Sub SetPermissions(target as String, permissions as String, recursive as boolean)
 		  If(recursive) Then
-		    ShellCommand("chmod -r" + permissions + " " + target, True)
+		    Utils.ShellCommand("chmod -r" + permissions + " " + target, True)
 		  Else
-		    ShellCommand("chmod " + permissions + " " + target, True)
+		    Utils.ShellCommand("chmod " + permissions + " " + target, True)
 		  End
 		End Sub
 	#tag EndMethod

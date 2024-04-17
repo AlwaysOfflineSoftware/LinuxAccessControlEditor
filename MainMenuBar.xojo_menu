@@ -15,6 +15,14 @@ Begin Menu MainMenuBar
          AutoEnable = True
          Visible = True
       End
+      Begin DesktopMenuItem FileExportLogs
+         SpecialMenu = 0
+         Index = -2147483648
+         Text = "Export Logs"
+         AutoEnabled = True
+         AutoEnable = True
+         Visible = True
+      End
       Begin DesktopQuitMenuItem FileQuit
          SpecialMenu = 0
          Index = -2147483648

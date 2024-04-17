@@ -38,14 +38,17 @@ Protected Module AclHandler
 		        ElseIf(splitAction(1)="U") Then
 		          RemoveAccessList(loadedItem,splitAction(2),False)
 		        End
+		        LoggingHandler.UpdateLog("REMOVED: " + splitAction(2))
 		      ElseIf(splitAction(0)="A") Then
 		        If(splitAction(1)="G") Then
 		          SetAccessList(loadedItem,"u",splitAction(2),splitAction(3))
 		        ElseIf(splitAction(1)="U") Then
 		          SetAccessList(loadedItem,"g",splitAction(2),splitAction(3))
+		          LoggingHandler.UpdateLog("ADDED: " + splitAction(2))
 		        End
 		      End
 		    Next
+		    LoggingHandler.UpdateLog("APPLIED: ACL Change")
 		  End
 		  
 		End Sub
@@ -88,7 +91,7 @@ Protected Module AclHandler
 	#tag Method, Flags = &h0
 		Sub ReloadAcl()
 		  MainScreen.lsb_CurrentACL.RemoveAllRows
-		  oldAcl=GetAccessList(loadedItem)
+		  oldAcl= GetAccessList(loadedItem)
 		  
 		  For Each item As String In oldAcl
 		    // System.DebugLog(item)
@@ -100,19 +103,19 @@ Protected Module AclHandler
 	#tag Method, Flags = &h0
 		Sub RemoveAccessList(target as String, entityName as String, isGroup as Boolean)
 		  If(isGroup) Then 
-		    ShellCommand("setfacl -x g:" + entityName + " " + target, True)
+		    Utils.ShellCommand("setfacl -x g:" + entityName + " " + target, True)
 		  Else
-		    ShellCommand("setfacl -x u:" + entityName + " " + target, True)
+		    Utils.ShellCommand("setfacl -x u:" + entityName + " " + target, True)
 		  End
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Sub SetAccessList(target as String, entityType as String, entityName as String, accessString as String)
-		  System.DebugLog("setfacl -m " + """" + entityType +_
-		  ":" + entityName + ":" + accessString + """ """ + target + """")
+		  // System.DebugLog("setfacl -m " + """" + entityType +_
+		  // ":" + entityName + ":" + accessString + """ """ + target + """")
 		  
-		  ShellCommand("setfacl -m " + """" + entityType +_
+		  Utils.ShellCommand("setfacl -m " + """" + entityType +_
 		  ":" + entityName + ":" + accessString + """ """ + target + """", True)
 		  
 		  

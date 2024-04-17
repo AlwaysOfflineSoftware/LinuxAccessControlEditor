@@ -332,16 +332,6 @@ Protected Module Utils
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0
-		Sub WriteToLog(message as string)
-		  Var currentLog As String= Mainscreen.txa_Log.Text
-		  
-		  currentLog= currentLog + message + EndOfLine
-		  
-		  Mainscreen.txa_Log.Text= currentLog
-		End Sub
-	#tag EndMethod
-
 
 	#tag ViewBehavior
 		#tag ViewProperty

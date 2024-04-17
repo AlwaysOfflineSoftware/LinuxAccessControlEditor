@@ -1,47 +1,38 @@
 #tag Module
-Protected Module TargetHandler
+Protected Module LoggingHandler
 	#tag Method, Flags = &h0
-		Sub ClearGui()
-		  MainScreen.lsb_CurrentACL.RemoveAllRows
-		  MainScreen.chk_ChildrenOwners.Value=False
-		  MainScreen.chk_ChildrenPermissions.Value=False
-		  MainScreen.cust_Permissions.clearChecks
-		  MainScreen.txt_Owner.Text=""
-		  MainScreen.txt_Group.Text=""
-		  MainScreen.txt_FileSelected.Text=""
+		Sub ClearLog()
+		  MainScreen.txa_Log.Text=""
+		  currentLog=""
+		  logList.RemoveAll
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub LoadFileToEditor(target as String)
-		  
-		  Var permissions As String= GetCurrentPermissions(target)
-		  MainScreen.lbl_CurrentPermDisplay.Text= permissions
-		  MainScreen.cust_Permissions.CheckboxOrder(permissions)
-		  
-		  Var owners() As String= GetCurrentOwner(target)
-		  MainScreen.txt_Owner.Text= owners(0)
-		  MainScreen.txt_Group.Text= owners(1)
-		  
-		  oldAcl= GetAccessList(target)
-		  
-		  For Each item As String In oldAcl
-		    // System.DebugLog(item)
-		    MainScreen.lsb_CurrentACL.AddRow(item.Split("|"))
+		Sub ExportLog(exportName as String)
+		  utils.WriteFile(App.exportLocation.Child(exportName),"Log Date="+DateTime.Now.ToString,True)
+		  For Each Log As String In logList
+		    utils.WriteFile(App.exportLocation.Child(exportName),Log,False)
 		  Next
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub UpdateLog(logString as String)
+		  currentLog= currentLog + logString + EndOfLine
+		  logList.Add(logString)
 		  
-		  oldPermissions= permissions
-		  oldOwner= owners(0)
-		  oldGroup= owners(1)
-		  loadedItem= target
-		  
-		  
+		  mainscreen.txa_Log.Text= currentLog
 		End Sub
 	#tag EndMethod
 
 
 	#tag Property, Flags = &h0
-		loadedItem As String
+		currentLog As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		logList() As String
 	#tag EndProperty
 
 
@@ -87,12 +78,12 @@ Protected Module TargetHandler
 			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="loadedItem"
+			Name="currentLog"
 			Visible=false
 			Group="Behavior"
 			InitialValue=""
 			Type="String"
-			EditorType="MultiLineEditor"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Module

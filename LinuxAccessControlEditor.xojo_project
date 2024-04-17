@@ -20,6 +20,7 @@ DesktopWindow=PermissionsBox;CustomControls/PermissionsBox.xojo_window;&h0000000
 MultiImage=img_XojoLogo;Assets/img_XojoLogo.xojo_image;&h000000003D151FFF;&h0000000041BEA7FF;false
 Module=Utils;Functions/Utils.xojo_code;&h000000007CF497FF;&h0000000001C0EFFF;false
 Module=TargetHandler;Functions/TargetHandler.xojo_code;&h000000004261B7FF;&h0000000001C0EFFF;false
+Module=LoggingHandler;Functions/LoggingHandler.xojo_code;&h00000000664AB7FF;&h0000000001C0EFFF;false
 DefaultWindow=MainScreen
 MajorVersion=1
 MinorVersion=0

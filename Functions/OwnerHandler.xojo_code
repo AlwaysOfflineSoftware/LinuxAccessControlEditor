@@ -24,6 +24,7 @@ Protected Module OwnerHandler
 		    Else
 		      setOwner(loadedItem,newOwner,newGroup, False)
 		    End
+		    LoggingHandler.UpdateLog("APPLIED: Owner Change")
 		  End
 		  
 		  
@@ -42,12 +43,12 @@ Protected Module OwnerHandler
 
 	#tag Method, Flags = &h0
 		Sub SetOwner(target as String, owner as string, group as string, recursive as Boolean)
-		  System.DebugLog("chown " + owner + ":" + group)
+		  // System.DebugLog("chown " + owner + ":" + group)
 		  
 		  If(recursive) Then
-		    ShellCommand("chown -r " + owner + ":" + group + " " + target, True)
+		    Utils.ShellCommand("chown -r " + owner + ":" + group + " " + target, True)
 		  Else
-		    ShellCommand("chown " + owner + ":" + group + " " + target, True)
+		    Utils.ShellCommand("chown " + owner + ":" + group + " " + target, True)
 		  End
 		End Sub
 	#tag EndMethod
