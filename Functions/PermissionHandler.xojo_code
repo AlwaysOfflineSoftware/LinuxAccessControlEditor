@@ -2,19 +2,14 @@
 Protected Module PermissionHandler
 	#tag Method, Flags = &h0
 		Sub ApplyPermissions()
-		  Var permissionChange As Boolean= False
+		  Var permissionChange As Boolean= PermissionHandler.CheckForChange
 		  
 		  Var newPermissions As String= MainScreen.cust_Permissions.lbl_OwnerPermDisplay.Text + _
 		  MainScreen.cust_Permissions.lbl_GroupPermDisplay.Text + _ 
 		  MainScreen.cust_Permissions.lbl_SystemPermDisplay.Text
 		  
-		  If(oldPermissions<>newPermissions) Then
-		    // System.DebugLog(oldPermissions + "=" + newPermissions)
-		    permissionChange= True
-		  End
-		  
 		  If(permissionChange) Then
-		    If(MainScreen.chk_ChildrenOwners.Value) Then
+		    If(MainScreen.chk_ChildrenPermissions.Value) Then
 		      SetPermissions(loadedItem,newPermissions, True)
 		      MainScreen.lbl_CurrentPermDisplay.Text= _
 		      GetCurrentPermissions(loadedItem)
@@ -29,6 +24,21 @@ Protected Module PermissionHandler
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function CheckForChange() As Boolean
+		  Var newPermissions As String= MainScreen.cust_Permissions.lbl_OwnerPermDisplay.Text + _
+		  MainScreen.cust_Permissions.lbl_GroupPermDisplay.Text + _ 
+		  MainScreen.cust_Permissions.lbl_SystemPermDisplay.Text
+		  
+		  If(oldPermissions<>newPermissions) Then
+		    // System.DebugLog(oldPermissions + "=" + newPermissions)
+		    Return True
+		  Else
+		    Return False
+		  End
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function GetCurrentPermissions(target as String) As String
 		  Return ShellCommand("stat -c ""%a"" "+target).Replace(EndOfLine,"")
 		End Function
@@ -37,7 +47,7 @@ Protected Module PermissionHandler
 	#tag Method, Flags = &h0
 		Sub SetPermissions(target as String, permissions as String, recursive as boolean)
 		  If(recursive) Then
-		    Utils.ShellCommand("chmod -r" + permissions + " " + target, True)
+		    Utils.ShellCommand("chmod --recursive " + permissions + " " + target, True)
 		  Else
 		    Utils.ShellCommand("chmod " + permissions + " " + target, True)
 		  End

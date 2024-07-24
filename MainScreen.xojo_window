@@ -917,6 +917,7 @@ End
 		    
 		    Self.lbl_User.Text="User"
 		    Self.lbl_Group.Text="Group"
+		    LoggingHandler.UpdateLog("Loaded: " + selected.NativePath)
 		  End
 		  
 		End Sub
@@ -975,9 +976,11 @@ End
 #tag Events btn_Apply
 	#tag Event
 		Sub Pressed()
-		  ApplyOwnerGroup
-		  ApplyPermissions
-		  ApplyAcl
+		  // TargetHandler.ApplyMultiple(OwnerHandler.CheckForChange,PermissionHandler.CheckForChange,_
+		  // AclHandler.CheckForChange)
+		  OwnerHandler.ApplyOwnerGroup
+		  PermissionHandler.ApplyPermissions
+		  AclHandler.ApplyAcl
 		  ReloadAcl
 		End Sub
 	#tag EndEvent

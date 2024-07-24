@@ -2,36 +2,19 @@
 Protected Module AclHandler
 	#tag Method, Flags = &h0
 		Sub ApplyAcl()
-		  Var aclChange As Boolean= False
-		  Var tempRecord As String
 		  Var actionRecords() As String
 		  Var splitAction() As String
 		  
-		  For rowNum As Integer=0 To MainScreen.lsb_CurrentACL.LastRowIndex
-		    
-		    For colNum As Integer=0 To MainScreen.lsb_CurrentACL.LastColumnIndex
-		      tempRecord= tempRecord + MainScreen.lsb_CurrentACL.CellTextAt(rowNum,colNum) + "|"
-		    Next
-		    
-		    If(MainScreen.lsb_CurrentACL.CellTextAt(rowNum,0)="R") Then
-		      aclChange= True // ACL contains a queued remove record
-		      actionRecords.Add(tempRecord)
-		    End
-		    If(MainScreen.lsb_CurrentACL.CellTextAt(rowNum,0)="A") Then
-		      aclChange= True // ACL contains a queued add record
-		      actionRecords.Add(tempRecord)
-		    End
-		  Next
+		  actionRecords= GetActionItems()
 		  
-		  If(aclChange) Then
+		  If(actionRecords.Count>0) Then
 		    For Each action As String In actionRecords
 		      splitAction= action.Split("|")
-		      System.DebugLog(action)
-		      System.DebugLog(splitAction(0))
-		      System.DebugLog(splitAction(1))
-		      System.DebugLog(splitAction(2))
-		      System.DebugLog(splitAction(3))
-		      System.DebugLog(splitAction(4))
+		      // System.DebugLog(splitAction(0))
+		      // System.DebugLog(splitAction(1))
+		      // System.DebugLog(splitAction(2))
+		      // System.DebugLog(splitAction(3))
+		      // System.DebugLog(splitAction(4))
 		      If(splitAction(0)="R") Then
 		        If(splitAction(1)="G") Then
 		          RemoveAccessList(loadedItem,splitAction(2),True)
@@ -52,6 +35,67 @@ Protected Module AclHandler
 		  End
 		  
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ChainAcl() As String
+		  Var finalActionString As String
+		  Var actionRecords() As String
+		  Var splitAction() As String
+		  
+		  actionRecords= GetActionItems()
+		  
+		  // "setfacl -m " + """" + entityType + ":" + entityName + ":" +_ 
+		  // accessString + """ """ + target + """"
+		  
+		  // "setfacl -x u:" + entityName + " " + target
+		  
+		  If(actionRecords.Count>0) Then
+		    For Each action As String In actionRecords
+		      splitAction= action.Split("|")
+		      If(splitAction(0)="R") Then
+		        If(splitAction(1)="G") Then
+		          finalActionString= finalActionString + "setfacl -x g:" + loadedItem +_
+		          " " + splitAction(2) + " && "
+		        ElseIf(splitAction(1)="U") Then
+		          finalActionString= finalActionString + "setfacl -x u:" + loadedItem +_
+		          " " + splitAction(2) + " && "
+		        End
+		      ElseIf(splitAction(0)="A") Then
+		        If(splitAction(1)="G") Then
+		          finalActionString= finalActionString + "setfacl -m " + """" + "u" + ":" +_
+		          splitAction(2) + ":" + splitAction(3) + """ """ + loadedItem + """" + " && "
+		        ElseIf(splitAction(1)="U") Then
+		          finalActionString= finalActionString + "setfacl -m " + """" + "g" + ":" +_
+		          splitAction(2) + ":" + splitAction(3) + """ """ + loadedItem + """" + " && "
+		        End
+		      End
+		    Next
+		  End
+		  
+		  Return finalActionString.Left(finalActionString.Length-4)
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function CheckForChange() As Boolean
+		  Var tempRecord As String
+		  Var actionRecords() As String
+		  
+		  For rowNum As Integer=0 To MainScreen.lsb_CurrentACL.LastRowIndex
+		    If(MainScreen.lsb_CurrentACL.CellTextAt(rowNum,0)="R") Then
+		      Return True
+		    End
+		    If(MainScreen.lsb_CurrentACL.CellTextAt(rowNum,0)="A") Then
+		      Return True
+		    End
+		    If(MainScreen.lsb_CurrentACL.CellTextAt(rowNum,0)="M") Then
+		      Return True
+		    End
+		  Next
+		  
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -85,6 +129,29 @@ Protected Module AclHandler
 		  
 		  Return output
 		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function GetActionItems() As String()
+		  Var tempRecord As String
+		  Var actionRecords() As String
+		  
+		  For rowNum As Integer=0 To MainScreen.lsb_CurrentACL.LastRowIndex
+		    
+		    For colNum As Integer=0 To MainScreen.lsb_CurrentACL.LastColumnIndex
+		      tempRecord= tempRecord + MainScreen.lsb_CurrentACL.CellTextAt(rowNum,colNum) + "|"
+		    Next
+		    
+		    If(MainScreen.lsb_CurrentACL.CellTextAt(rowNum,0)="R") Then
+		      actionRecords.Add(tempRecord)
+		    End
+		    If(MainScreen.lsb_CurrentACL.CellTextAt(rowNum,0)="A") Then
+		      actionRecords.Add(tempRecord)
+		    End
+		  Next
+		  
+		  Return actionRecords
 		End Function
 	#tag EndMethod
 

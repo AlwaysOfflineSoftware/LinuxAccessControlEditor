@@ -24,7 +24,7 @@ Begin DesktopWindow LicenseScreen
    Type            =   1
    Visible         =   True
    Width           =   830
-   Begin DesktopLabel Label1
+   Begin DesktopLabel txt_SimpleExplain
       AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
@@ -56,7 +56,7 @@ Begin DesktopWindow LicenseScreen
       Visible         =   True
       Width           =   227
    End
-   Begin DesktopTextArea TextArea1
+   Begin DesktopTextArea txa_GPLv2
       AllowAutoDeactivate=   True
       AllowFocusRing  =   True
       AllowSpellChecking=   False

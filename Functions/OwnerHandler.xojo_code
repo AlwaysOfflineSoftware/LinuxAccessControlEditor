@@ -2,23 +2,10 @@
 Protected Module OwnerHandler
 	#tag Method, Flags = &h0
 		Sub ApplyOwnerGroup()
-		  Var ownerChange As Boolean= False
-		  Var groupChange As Boolean= False
-		  
 		  Var newOwner As String= MainScreen.txt_Owner.Text
 		  Var newGroup As String= MainScreen.txt_Group.Text
 		  
-		  If(oldOwner<>newOwner) Then
-		    // System.DebugLog(oldOwner + "=" + newOwner)
-		    ownerChange= True
-		  End
-		  
-		  If(oldGroup<>newGroup) Then 
-		    // System.DebugLog(oldGroup + "=" + newGroup)
-		    groupChange= True
-		  End
-		  
-		  If(ownerChange Or groupChange) Then
+		  If(CheckForChange) Then
 		    If(MainScreen.chk_ChildrenOwners.Value) Then
 		      setOwner(loadedItem,newOwner,newGroup, True)
 		    Else
@@ -29,6 +16,26 @@ Protected Module OwnerHandler
 		  
 		  
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function CheckForChange() As Boolean
+		  Var newOwner As String= MainScreen.txt_Owner.Text
+		  Var newGroup As String= MainScreen.txt_Group.Text
+		  
+		  If(oldOwner<>newOwner) Then
+		    // System.DebugLog(oldOwner + "=" + newOwner)
+		    Return True
+		  End
+		  
+		  If(oldGroup<>newGroup) Then 
+		    // System.DebugLog(oldGroup + "=" + newGroup)
+		    Return True
+		  End
+		  
+		  Return False
+		  
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -50,6 +57,7 @@ Protected Module OwnerHandler
 		  Else
 		    Utils.ShellCommand("chown " + owner + ":" + group + " " + target, True)
 		  End
+		  
 		End Sub
 	#tag EndMethod
 
