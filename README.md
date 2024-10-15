@@ -12,5 +12,5 @@ _This is Alpha software, please expect bugs and do not use this for production c
 ![image](https://github.com/AlwaysOfflineSoftware/LinuxAccessControlEditor/assets/9456373/e0af0beb-5621-4485-a130-08bcb8638b24)
 
 
-Made with <a href="https://www.xojo.com/download/">Xojo</a> (Which is free for Linux!)
+Made with <a href="https://www.xojo.com">Xojo</a> (Which is free for Linux!)
 
