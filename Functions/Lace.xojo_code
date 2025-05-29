@@ -55,6 +55,7 @@ Protected Module Lace
 		  MainScreen.lsb_CurrentACL.RemoveAllRows
 		  MainScreen.cust_Owner.chk_ChildrenOwners.Value=False
 		  MainScreen.cust_Permissions.chk_ChildrenPermissions.Value=False
+		  Mainscreen.lbl_CurrentPermDisplay="0 0 0"
 		  MainScreen.cust_Owner.txt_Owner.Text=""
 		  MainScreen.cust_Owner.txt_Group.Text=""
 		  MainScreen.txt_FileSelected.Text=""

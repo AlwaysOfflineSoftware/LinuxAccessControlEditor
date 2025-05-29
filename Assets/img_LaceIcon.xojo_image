@@ -3,7 +3,7 @@ Image img_LaceIcon
 	#tag ImageRepresentation
 		SaveInfo = APHRcwECAQAAAABcL2hvbWUvaG9wZWxlc3NkZWNveS9Qcm9qZWN0cy9Yb2pvL0Rlc2t0b3BBcHBzL2xpbnV4YWNjZXNzY29udHJvbG1hbmFnZXIvQXNzZXRzL0xBQ0VfSWNvbi5wbmcDAAAAAAEBBAAAAAABAAAAAAAAAA==
 		FullPath = /home/hopelessdecoy/Projects/Xojo/DesktopApps/linuxaccesscontrolmanager/Assets/LACE_Icon.png
-		PartialPath = ..\..\..\DesktopApps\linuxaccesscontrolmanager\Assets\LACE_Icon.png
+		PartialPath = ..\..\DesktopApps\linuxaccesscontrolmanager\Assets\LACE_Icon.png
 		#tag ImageSpecification
 			Comment = 
 			Device = 31

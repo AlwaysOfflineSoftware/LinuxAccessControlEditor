@@ -306,6 +306,7 @@ Begin DesktopWindow AboutScreen
       Width           =   188
    End
    Begin DesktopImageViewer imv_LaceLogo
+      Active          =   False
       AllowAutoDeactivate=   True
       AllowTabStop    =   True
       Enabled         =   True
@@ -319,6 +320,7 @@ Begin DesktopWindow AboutScreen
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
+      PanelIndex      =   0
       Scope           =   0
       TabIndex        =   12
       TabPanelIndex   =   0
@@ -327,6 +329,10 @@ Begin DesktopWindow AboutScreen
       Transparent     =   False
       Visible         =   True
       Width           =   100
+      _mIndex         =   0
+      _mInitialParent =   ""
+      _mName          =   ""
+      _mPanelIndex    =   0
    End
 End
 #tag EndDesktopWindow
@@ -335,8 +341,6 @@ End
 	#tag Event
 		Sub Opening()
 		  Self.imv_LaceLogo.Image= Utils.LoadPicture(img_LaceIcon,100,100)
-		  
-		  
 		End Sub
 	#tag EndEvent
 
