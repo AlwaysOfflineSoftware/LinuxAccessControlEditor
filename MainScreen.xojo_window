@@ -253,7 +253,7 @@ Begin DesktopWindow MainScreen
       TextAlignment   =   0
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   59
+      Top             =   58
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -300,7 +300,7 @@ Begin DesktopWindow MainScreen
       Height          =   20
       Index           =   -2147483648
       InitialParent   =   ""
-      Left            =   20
+      Left            =   7
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -314,7 +314,7 @@ Begin DesktopWindow MainScreen
       Top             =   77
       Transparent     =   False
       Visible         =   True
-      Width           =   760
+      Width           =   786
       _mIndex         =   0
       _mInitialParent =   ""
       _mName          =   ""
@@ -333,7 +333,7 @@ Begin DesktopWindow MainScreen
       Height          =   26
       Index           =   -2147483648
       Italic          =   False
-      Left            =   20
+      Left            =   7
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -345,63 +345,42 @@ Begin DesktopWindow MainScreen
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   58
+      Top             =   59
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   80
    End
-   BeginDesktopSegmentedButton DesktopSegmentedButton seg_TabBars
-      Enabled         =   True
-      Height          =   24
-      Index           =   -2147483648
-      Left            =   20
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   0
-      Segments        =   "Ownership\n\nTrue\rPermissions\n\nFalse\rAccess Control\n\nFalse\rEncryption\n\nFalse\rAntiVirus\n\nFalse\rSandboxing\n\nFalse\rLogs\n\nFalse"
-      SelectionStyle  =   0
-      TabIndex        =   49
-      TabPanelIndex   =   0
-      TabStop         =   False
-      Tooltip         =   ""
-      Top             =   97
-      Transparent     =   False
-      Visible         =   True
-      Width           =   760
-   End
-   Begin DesktopGroupBox grp_Ownership
+   Begin DesktopTabPanel tab_Main
       AllowAutoDeactivate=   True
       Bold            =   False
-      Caption         =   ""
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
-      Height          =   270
+      Height          =   311
       Index           =   -2147483648
-      InitialParent   =   ""
       Italic          =   False
-      Left            =   20
-      LockBottom      =   False
+      Left            =   0
+      LockBottom      =   True
       LockedInPosition=   False
       LockLeft        =   True
-      LockRight       =   False
+      LockRight       =   True
       LockTop         =   True
+      Panels          =   ""
       Scope           =   0
-      TabIndex        =   50
+      SmallTabs       =   True
+      TabDefinition   =   "Ownership\rPermissions\rAccess Control\rEncryption\rAntivirus\rSandboxing\rLogs"
+      TabIndex        =   59
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   112
+      Top             =   90
       Transparent     =   False
       Underline       =   False
+      Value           =   4
       Visible         =   True
-      Width           =   755
+      Width           =   800
       Begin OwnerBox cust_Owner
          AllowAutoDeactivate=   True
          AllowFocus      =   False
@@ -412,9 +391,9 @@ Begin DesktopWindow MainScreen
          Composited      =   False
          Enabled         =   True
          HasBackgroundColor=   False
-         Height          =   188
+         Height          =   217
          Index           =   -2147483648
-         InitialParent   =   "grp_Ownership"
+         InitialParent   =   "tab_Main"
          Left            =   20
          LockBottom      =   True
          LockedInPosition=   False
@@ -423,13 +402,13 @@ Begin DesktopWindow MainScreen
          LockTop         =   True
          Scope           =   0
          TabIndex        =   0
-         TabPanelIndex   =   0
+         TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
-         Top             =   120
+         Top             =   128
          Transparent     =   True
          Visible         =   True
-         Width           =   751
+         Width           =   760
       End
       Begin DesktopButton btn_ApplyOwnership
          AllowAutoDeactivate=   True
@@ -443,9 +422,9 @@ Begin DesktopWindow MainScreen
          FontUnit        =   0
          Height          =   26
          Index           =   -2147483648
-         InitialParent   =   "grp_Ownership"
+         InitialParent   =   "tab_Main"
          Italic          =   False
-         Left            =   675
+         Left            =   700
          LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   False
@@ -454,164 +433,14 @@ Begin DesktopWindow MainScreen
          MacButtonStyle  =   0
          Scope           =   0
          TabIndex        =   1
-         TabPanelIndex   =   0
+         TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   "Apply any changes to permissions and owners"
-         Top             =   336
+         Top             =   357
          Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   80
-      End
-   End
-   Begin DesktopGroupBox grp_Permissions
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Caption         =   ""
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   270
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   792
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Scope           =   0
-      TabIndex        =   51
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   412
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   755
-      Begin PermissionsBox cust_Permissions
-         AllowAutoDeactivate=   True
-         AllowFocus      =   False
-         AllowFocusRing  =   False
-         AllowTabs       =   True
-         Backdrop        =   0
-         BackgroundColor =   &cFFFFFF
-         Composited      =   False
-         Enabled         =   True
-         HasBackgroundColor=   False
-         Height          =   187
-         Index           =   -2147483648
-         InitialParent   =   "grp_Permissions"
-         Left            =   792
-         LockBottom      =   True
-         LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   True
-         LockTop         =   True
-         Scope           =   0
-         TabIndex        =   0
-         TabPanelIndex   =   0
-         TabStop         =   True
-         Tooltip         =   ""
-         Top             =   431
-         Transparent     =   True
-         Visible         =   True
-         Width           =   752
-      End
-      Begin DesktopButton btn_ApplyPermissions
-         AllowAutoDeactivate=   True
-         Bold            =   False
-         Cancel          =   False
-         Caption         =   "Apply"
-         Default         =   True
-         Enabled         =   True
-         FontName        =   "Liberation Serif"
-         FontSize        =   0.0
-         FontUnit        =   0
-         Height          =   26
-         Index           =   -2147483648
-         InitialParent   =   "grp_Permissions"
-         Italic          =   False
-         Left            =   1447
-         LockBottom      =   True
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   True
-         LockTop         =   False
-         MacButtonStyle  =   0
-         Scope           =   0
-         TabIndex        =   1
-         TabPanelIndex   =   0
-         TabStop         =   True
-         Tooltip         =   "Apply any changes to permissions and owners"
-         Top             =   636
-         Transparent     =   False
-         Underline       =   False
-         Visible         =   True
-         Width           =   80
-      End
-   End
-   Begin DesktopGroupBox grp_Logs
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Caption         =   ""
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   270
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   20
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Scope           =   0
-      TabIndex        =   52
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   412
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   755
-      Begin DesktopButton btn_ExportLogs
-         AllowAutoDeactivate=   True
-         Bold            =   False
-         Cancel          =   False
-         Caption         =   "Export Logs"
-         Default         =   False
-         Enabled         =   True
-         FontName        =   "System"
-         FontSize        =   0.0
-         FontUnit        =   0
-         Height          =   26
-         Index           =   -2147483648
-         InitialParent   =   "grp_Logs"
-         Italic          =   False
-         Left            =   666
-         LockBottom      =   True
-         LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   False
-         LockTop         =   False
-         MacButtonStyle  =   0
-         Scope           =   0
-         TabIndex        =   1
-         TabPanelIndex   =   0
-         TabStop         =   True
-         Tooltip         =   ""
-         Top             =   636
-         Transparent     =   False
-         Underline       =   False
-         Visible         =   True
-         Width           =   94
       End
       Begin DesktopListBox lsb_SecurityLogs
          AllowAutoDeactivate=   True
@@ -636,12 +465,12 @@ Begin DesktopWindow MainScreen
          HasHorizontalScrollbar=   False
          HasVerticalScrollbar=   True
          HeadingIndex    =   -1
-         Height          =   186
+         Height          =   215
          Index           =   -2147483648
-         InitialParent   =   "grp_Logs"
+         InitialParent   =   "tab_Main"
          InitialValue    =   "Tool	Event	Time Stamp"
          Italic          =   False
-         Left            =   40
+         Left            =   20
          LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
@@ -651,46 +480,168 @@ Begin DesktopWindow MainScreen
          RowSelectionType=   0
          Scope           =   0
          TabIndex        =   0
-         TabPanelIndex   =   0
+         TabPanelIndex   =   7
          TabStop         =   True
          Tooltip         =   ""
-         Top             =   432
+         Top             =   128
          Transparent     =   False
          Underline       =   False
          Visible         =   True
-         Width           =   715
+         Width           =   760
          _ScrollOffset   =   0
          _ScrollWidth    =   -1
       End
-   End
-   Begin DesktopGroupBox grp_Encryption
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Caption         =   ""
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   270
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   20
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Scope           =   0
-      TabIndex        =   53
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   690
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   755
+      Begin DesktopButton btn_ExportLogs
+         AllowAutoDeactivate=   True
+         Bold            =   False
+         Cancel          =   False
+         Caption         =   "Export Logs"
+         Default         =   False
+         Enabled         =   True
+         FontName        =   "System"
+         FontSize        =   0.0
+         FontUnit        =   0
+         Height          =   26
+         Index           =   -2147483648
+         InitialParent   =   "tab_Main"
+         Italic          =   False
+         Left            =   686
+         LockBottom      =   True
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   False
+         MacButtonStyle  =   0
+         Scope           =   0
+         TabIndex        =   1
+         TabPanelIndex   =   7
+         TabStop         =   True
+         Tooltip         =   ""
+         Top             =   355
+         Transparent     =   False
+         Underline       =   False
+         Visible         =   True
+         Width           =   94
+      End
+      Begin PermissionsBox cust_Permissions
+         AllowAutoDeactivate=   True
+         AllowFocus      =   False
+         AllowFocusRing  =   False
+         AllowTabs       =   True
+         Backdrop        =   0
+         BackgroundColor =   &cFFFFFF
+         Composited      =   False
+         Enabled         =   True
+         HasBackgroundColor=   False
+         Height          =   215
+         Index           =   -2147483648
+         InitialParent   =   "tab_Main"
+         Left            =   20
+         LockBottom      =   True
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   True
+         LockTop         =   True
+         Scope           =   0
+         TabIndex        =   0
+         TabPanelIndex   =   2
+         TabStop         =   True
+         Tooltip         =   ""
+         Top             =   128
+         Transparent     =   True
+         Visible         =   True
+         Width           =   760
+      End
+      Begin DesktopButton btn_ApplyPermissions
+         AllowAutoDeactivate=   True
+         Bold            =   False
+         Cancel          =   False
+         Caption         =   "Apply"
+         Default         =   True
+         Enabled         =   True
+         FontName        =   "Liberation Serif"
+         FontSize        =   0.0
+         FontUnit        =   0
+         Height          =   26
+         Index           =   -2147483648
+         InitialParent   =   "tab_Main"
+         Italic          =   False
+         Left            =   700
+         LockBottom      =   True
+         LockedInPosition=   False
+         LockLeft        =   False
+         LockRight       =   True
+         LockTop         =   False
+         MacButtonStyle  =   0
+         Scope           =   0
+         TabIndex        =   1
+         TabPanelIndex   =   2
+         TabStop         =   True
+         Tooltip         =   "Apply any changes to permissions and owners"
+         Top             =   355
+         Transparent     =   False
+         Underline       =   False
+         Visible         =   True
+         Width           =   80
+      End
+      Begin AccessControlBox cust_AccessControl
+         AllowAutoDeactivate=   True
+         AllowFocus      =   False
+         AllowFocusRing  =   False
+         AllowTabs       =   True
+         Backdrop        =   0
+         BackgroundColor =   &cFFFFFF
+         Composited      =   False
+         Enabled         =   True
+         HasBackgroundColor=   False
+         Height          =   246
+         Index           =   -2147483648
+         InitialParent   =   "tab_Main"
+         Left            =   20
+         LockBottom      =   False
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   False
+         LockTop         =   True
+         Scope           =   0
+         TabIndex        =   0
+         TabPanelIndex   =   3
+         TabStop         =   True
+         Tooltip         =   ""
+         Top             =   128
+         Transparent     =   False
+         Visible         =   True
+         Width           =   760
+      End
+      Begin PasswordsBox cust_Passwords
+         AllowAutoDeactivate=   True
+         AllowFocus      =   False
+         AllowFocusRing  =   False
+         AllowTabs       =   True
+         Backdrop        =   0
+         BackgroundColor =   &cFFFFFF
+         Composited      =   False
+         Enabled         =   True
+         HasBackgroundColor=   False
+         Height          =   214
+         Index           =   -2147483648
+         InitialParent   =   "tab_Main"
+         Left            =   20
+         LockBottom      =   True
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   True
+         LockTop         =   True
+         Scope           =   0
+         TabIndex        =   0
+         TabPanelIndex   =   4
+         TabStop         =   True
+         Tooltip         =   ""
+         Top             =   128
+         Transparent     =   True
+         Visible         =   True
+         Width           =   760
+      End
       Begin DesktopButton btn_EncyptFile
          AllowAutoDeactivate=   True
          Bold            =   False
@@ -703,9 +654,9 @@ Begin DesktopWindow MainScreen
          FontUnit        =   0
          Height          =   26
          Index           =   -2147483648
-         InitialParent   =   "grp_Encryption"
+         InitialParent   =   "tab_Main"
          Italic          =   False
-         Left            =   663
+         Left            =   689
          LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   False
@@ -714,10 +665,10 @@ Begin DesktopWindow MainScreen
          MacButtonStyle  =   0
          Scope           =   0
          TabIndex        =   1
-         TabPanelIndex   =   0
+         TabPanelIndex   =   4
          TabStop         =   True
          Tooltip         =   "Encrypts the loaded file with the password provided above (ZipCrypto)"
-         Top             =   914
+         Top             =   354
          Transparent     =   False
          Underline       =   False
          Visible         =   True
@@ -735,9 +686,9 @@ Begin DesktopWindow MainScreen
          FontUnit        =   0
          Height          =   26
          Index           =   -2147483648
-         InitialParent   =   "grp_Encryption"
+         InitialParent   =   "tab_Main"
          Italic          =   False
-         Left            =   561
+         Left            =   587
          LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   False
@@ -746,246 +697,45 @@ Begin DesktopWindow MainScreen
          MacButtonStyle  =   0
          Scope           =   0
          TabIndex        =   2
-         TabPanelIndex   =   0
+         TabPanelIndex   =   4
          TabStop         =   True
          Tooltip         =   "Decrypts the loaded file with the password provided above"
-         Top             =   914
+         Top             =   354
          Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   91
       End
-      Begin PasswordsBox cust_Passwords
-         AllowAutoDeactivate=   True
-         AllowFocus      =   False
-         AllowFocusRing  =   False
-         AllowTabs       =   True
-         Backdrop        =   0
-         BackgroundColor =   &cFFFFFF
-         Composited      =   False
-         Enabled         =   True
-         HasBackgroundColor=   False
-         Height          =   207
-         Index           =   -2147483648
-         InitialParent   =   "grp_Encryption"
-         Left            =   20
-         LockBottom      =   True
-         LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   True
-         LockTop         =   True
-         Scope           =   0
-         TabIndex        =   0
-         TabPanelIndex   =   0
-         TabStop         =   True
-         Tooltip         =   ""
-         Top             =   698
-         Transparent     =   True
-         Visible         =   True
-         Width           =   752
-      End
-   End
-   Begin DesktopGroupBox grp_AccessControl
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Caption         =   ""
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   270
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   792
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Scope           =   0
-      TabIndex        =   54
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   690
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   755
-      Begin DesktopListBox lsb_CurrentACL
-         AllowAutoDeactivate=   True
-         AllowAutoHideScrollbars=   True
-         AllowExpandableRows=   False
-         AllowFocusRing  =   True
-         AllowResizableColumns=   False
-         AllowRowDragging=   False
-         AllowRowReordering=   True
-         Bold            =   False
-         ColumnCount     =   4
-         ColumnWidths    =   "60,50,360"
-         DefaultRowHeight=   -1
-         DropIndicatorVisible=   False
-         Enabled         =   True
-         FontName        =   "Liberation Sans"
-         FontSize        =   0.0
-         FontUnit        =   0
-         GridLineStyle   =   1
-         HasBorder       =   True
-         HasHeader       =   True
-         HasHorizontalScrollbar=   False
-         HasVerticalScrollbar=   True
-         HeadingIndex    =   -1
-         Height          =   224
-         Index           =   -2147483648
-         InitialParent   =   "grp_AccessControl"
-         InitialValue    =   "Applied	Type	Name	Access"
-         Italic          =   False
-         Left            =   812
-         LockBottom      =   True
-         LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   True
-         LockTop         =   True
-         RequiresSelection=   False
-         RowSelectionType=   0
-         Scope           =   0
-         TabIndex        =   0
-         TabPanelIndex   =   0
-         TabStop         =   True
-         Tooltip         =   "Applied Codes:\nO= Yet to be applied\nX= Currently applied\nR= Currently applied, queued for removal"
-         Top             =   710
-         Transparent     =   False
-         Underline       =   False
-         Visible         =   True
-         Width           =   623
-         _ScrollOffset   =   0
-         _ScrollWidth    =   -1
-      End
-      Begin DesktopButton btn_Add
+      Begin DesktopPopupMenu pop_Algorithm
          AllowAutoDeactivate=   True
          Bold            =   False
-         Cancel          =   False
-         Caption         =   "Add"
-         Default         =   False
          Enabled         =   True
-         FontName        =   "Liberation Sans"
+         FontName        =   "System"
          FontSize        =   0.0
          FontUnit        =   0
          Height          =   26
          Index           =   -2147483648
-         InitialParent   =   "grp_AccessControl"
+         InitialParent   =   "tab_Main"
+         InitialValue    =   "AES\nZip Crypto"
          Italic          =   False
-         Left            =   1447
+         Left            =   461
          LockBottom      =   False
          LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   True
+         LockLeft        =   True
+         LockRight       =   False
          LockTop         =   True
-         MacButtonStyle  =   0
          Scope           =   0
-         TabIndex        =   1
-         TabPanelIndex   =   0
-         TabStop         =   True
-         Tooltip         =   ""
-         Top             =   710
-         Transparent     =   False
-         Underline       =   False
-         Visible         =   True
-         Width           =   80
-      End
-      Begin DesktopButton btn_Remove
-         AllowAutoDeactivate=   True
-         Bold            =   False
-         Cancel          =   False
-         Caption         =   "Remove"
-         Default         =   False
-         Enabled         =   True
-         FontName        =   "Liberation Sans"
-         FontSize        =   0.0
-         FontUnit        =   0
-         Height          =   26
-         Index           =   -2147483648
-         InitialParent   =   "grp_AccessControl"
-         Italic          =   False
-         Left            =   1447
-         LockBottom      =   False
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   True
-         LockTop         =   True
-         MacButtonStyle  =   0
-         Scope           =   0
-         TabIndex        =   2
-         TabPanelIndex   =   0
-         TabStop         =   True
-         Tooltip         =   ""
-         Top             =   748
-         Transparent     =   False
-         Underline       =   False
-         Visible         =   True
-         Width           =   80
-      End
-      Begin DesktopButton btn_ApplyAccess
-         AllowAutoDeactivate=   True
-         Bold            =   False
-         Cancel          =   False
-         Caption         =   "Apply"
-         Default         =   True
-         Enabled         =   True
-         FontName        =   "Liberation Serif"
-         FontSize        =   0.0
-         FontUnit        =   0
-         Height          =   26
-         Index           =   -2147483648
-         InitialParent   =   "grp_AccessControl"
-         Italic          =   False
-         Left            =   1446
-         LockBottom      =   True
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   True
-         LockTop         =   False
-         MacButtonStyle  =   0
-         Scope           =   0
+         SelectedRowIndex=   0
          TabIndex        =   3
-         TabPanelIndex   =   0
+         TabPanelIndex   =   4
          TabStop         =   True
-         Tooltip         =   "Apply any changes to permissions and owners"
-         Top             =   914
+         Tooltip         =   ""
+         Top             =   347
          Transparent     =   False
          Underline       =   False
          Visible         =   True
-         Width           =   80
+         Width           =   114
       End
-   End
-   Begin DesktopGroupBox grp_Antivirus
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Caption         =   ""
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   270
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   812
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Scope           =   0
-      TabIndex        =   55
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   133
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   755
       Begin DesktopLabel lbl_ComingSoon2
          AllowAutoDeactivate=   True
          Bold            =   False
@@ -995,9 +745,9 @@ Begin DesktopWindow MainScreen
          FontUnit        =   0
          Height          =   26
          Index           =   -2147483648
-         InitialParent   =   "grp_Antivirus"
+         InitialParent   =   "tab_Main"
          Italic          =   False
-         Left            =   1110
+         Left            =   319
          LockBottom      =   False
          LockedInPosition=   False
          LockLeft        =   True
@@ -1007,91 +757,52 @@ Begin DesktopWindow MainScreen
          Scope           =   2
          Selectable      =   False
          TabIndex        =   0
-         TabPanelIndex   =   0
+         TabPanelIndex   =   6
          TabStop         =   True
          Text            =   "Coming in a later version!"
          TextAlignment   =   0
          TextColor       =   &c000000
          Tooltip         =   ""
-         Top             =   255
+         Top             =   238
          Transparent     =   False
          Underline       =   False
          Visible         =   True
          Width           =   163
       End
-   End
-   Begin DesktopGroupBox grp_Sandboxing
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Caption         =   ""
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   270
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   812
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Scope           =   0
-      TabIndex        =   56
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   -149
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   755
-      Begin DesktopLabel lbl_ComingSoon1
+      Begin AntivirusBox AntivirusBox1
          AllowAutoDeactivate=   True
-         Bold            =   False
+         AllowFocus      =   False
+         AllowFocusRing  =   False
+         AllowTabs       =   True
+         Backdrop        =   0
+         BackgroundColor =   &cFFFFFF
+         Composited      =   False
          Enabled         =   True
-         FontName        =   "System"
-         FontSize        =   0.0
-         FontUnit        =   0
-         Height          =   26
+         HasBackgroundColor=   False
+         Height          =   253
          Index           =   -2147483648
-         InitialParent   =   "grp_Sandboxing"
-         Italic          =   False
-         Left            =   1111
-         LockBottom      =   False
+         InitialParent   =   "tab_Main"
+         Left            =   20
+         LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
-         LockRight       =   False
+         LockRight       =   True
          LockTop         =   True
-         Multiline       =   False
-         Scope           =   2
-         Selectable      =   False
+         Scope           =   0
          TabIndex        =   0
-         TabPanelIndex   =   0
+         TabPanelIndex   =   5
          TabStop         =   True
-         Text            =   "Coming in a later version!"
-         TextAlignment   =   0
-         TextColor       =   &c000000
          Tooltip         =   ""
-         Top             =   -27
-         Transparent     =   False
-         Underline       =   False
+         Top             =   128
+         Transparent     =   True
          Visible         =   True
-         Width           =   163
+         Width           =   760
       End
    End
 End
 #tag EndDesktopWindow
 
 #tag WindowCode
-	#tag Event
-		Sub Opening()
-		  MainScreen.seg_TabBars.ResizeSegmentsToFit
-		End Sub
-	#tag EndEvent
-
-
 	#tag MenuHandler
 		Function FileDonate() As Boolean Handles FileDonate.Action
 		  System.GotoURL("")
@@ -1102,14 +813,6 @@ End
 	#tag MenuHandler
 		Function FileExportLogs() As Boolean Handles FileExportLogs.Action
 		  LoggingHandler.ExportLog("LACE_LOG_" + DateTime.Now.ToString + ".txt")
-		End Function
-	#tag EndMenuHandler
-
-	#tag MenuHandler
-		Function FileSettings() As Boolean Handles FileSettings.Action
-		  SettingsScreen.Show
-		  Return True
-		  
 		End Function
 	#tag EndMenuHandler
 
@@ -1223,99 +926,10 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events seg_TabBars
-	#tag Event
-		Sub Pressed(segmentIndex As Integer)
-		  Var activeTop As Integer= 112
-		  Var activeLeft As Integer= 20
-		  
-		  If(segmentIndex= 0) Then // Ownership
-		    grp_Ownership.Top= activeTop
-		    grp_Ownership.Left= activeLeft
-		    
-		    grp_Permissions.Top= 412
-		    grp_AccessControl.Top= 412
-		    grp_Encryption.Top= 412
-		    grp_Logs.Top= 412
-		    grp_Antivirus.Top= 412
-		    grp_Sandboxing.Top= 412
-		  ElseIf(segmentIndex= 1) Then // Permissions
-		    grp_Permissions.Top= activeTop
-		    grp_Permissions.Left= activeLeft
-		    
-		    grp_Ownership.Top= 412
-		    grp_AccessControl.Top= 412
-		    grp_Encryption.Top= 412
-		    grp_Logs.Top= 412
-		    grp_Antivirus.Top= 412
-		    grp_Sandboxing.Top= 412
-		  ElseIf(segmentIndex= 2) Then // Access Lists
-		    grp_AccessControl.Top= activeTop
-		    grp_AccessControl.Left= activeLeft
-		    
-		    grp_Ownership.Top= 412
-		    grp_Permissions.Top= 412
-		    grp_Encryption.Top= 412
-		    grp_Logs.Top= 412
-		    grp_Antivirus.Top= 412
-		    grp_Sandboxing.Top= 412
-		  ElseIf(segmentIndex= 3) Then // Encryption
-		    grp_Encryption.Top= activeTop
-		    grp_Encryption.Left= activeLeft
-		    
-		    grp_Ownership.Top= 412
-		    grp_Permissions.Top= 412
-		    grp_AccessControl.Top= 412
-		    grp_Logs.Top= 412
-		    grp_Antivirus.Top= 412
-		    grp_Sandboxing.Top= 412
-		  ElseIf(segmentIndex= 4) Then // Antivirus
-		    grp_Antivirus.Top= activeTop
-		    grp_Antivirus.Left= activeLeft
-		    
-		    grp_Ownership.Top= 412
-		    grp_Permissions.Top= 412
-		    grp_AccessControl.Top= 412
-		    grp_Logs.Top= 412
-		    grp_Encryption.Top= 412
-		    grp_Sandboxing.Top= 412
-		  ElseIf(segmentIndex= 5) Then // Sandboxing
-		    grp_Sandboxing.Top= activeTop
-		    grp_Sandboxing.Left= activeLeft
-		    
-		    grp_Ownership.Top= 412
-		    grp_Permissions.Top= 412
-		    grp_AccessControl.Top= 412
-		    grp_Logs.Top= 412
-		    grp_Encryption.Top= 412
-		    grp_Antivirus.Top= 412
-		  ElseIf(segmentIndex= 6) Then // Logs
-		    grp_Logs.Top= activeTop
-		    grp_Logs.Left= activeLeft
-		    
-		    grp_Ownership.Top= 412
-		    grp_Permissions.Top= 412
-		    grp_AccessControl.Top= 412
-		    grp_Encryption.Top= 412
-		    grp_Sandboxing.Top= 412
-		    grp_Antivirus.Top= 412
-		  End
-		  
-		  LastSegmentSelected= segmentIndex
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag Events btn_ApplyOwnership
 	#tag Event
 		Sub Pressed()
 		  OwnerHandler.ApplyOwnerGroup
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btn_ApplyPermissions
-	#tag Event
-		Sub Pressed()
-		  PermissionHandler.ApplyPermissions
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1328,12 +942,31 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
+#tag Events btn_ApplyPermissions
+	#tag Event
+		Sub Pressed()
+		  PermissionHandler.ApplyPermissions
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag Events btn_EncyptFile
 	#tag Event
 		Sub Pressed()
-		  PasswordHandler.EncryptedZip(App.selectedFile, Self.cust_Passwords.txt_TestPassword.Text)
-		  
-		  Utils.GeneratePopup(1,"File was Encrypted!", "")
+		  If(Self.pop_Algorithm.SelectedRowText="AES") Then
+		    PasswordHandler.EncryptAES(app.selectedFile,Self.cust_Passwords.txt_TestPassword.Text)
+		    Utils.GeneratePopup(1,"File was AES Encrypted!", "Secure against most threats with a good password")
+		    
+		  ElseIf(Self.pop_Algorithm.SelectedRowText="Zip Crypto") Then
+		    PasswordHandler.EncryptedZip(App.selectedFile, Self.cust_Passwords.txt_TestPassword.Text)
+		    Utils.GeneratePopup(1,"File was zipped & Encrypted!", "More secure than plain text and smaller")
+		    
+		  ElseIf(Self.pop_Algorithm.SelectedRowText="Simple Ceasar") Then
+		    
+		    Utils.GeneratePopup(1,"File was scrambled!", "")
+		  Else
+		    PasswordHandler.EncryptAES(app.selectedFile,Self.cust_Passwords.txt_TestPassword.Text)
+		    Utils.GeneratePopup(1,"File was AES Encrypted!", "Secure against most threats with a good password")
+		  End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1342,35 +975,6 @@ End
 		Sub Pressed()
 		  PasswordInputScreen.Show
 		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btn_Add
-	#tag Event
-		Sub Pressed()
-		  AddACLScreen.Show
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btn_Remove
-	#tag Event
-		Sub Pressed()
-		  If(lsb_CurrentACL.SelectedRowIndex<>lsb_CurrentACL.NoSelection) Then
-		    If(lsb_CurrentACL.CellTextAt(lsb_CurrentACL.SelectedRowIndex,0)="O") Then
-		      lsb_CurrentACL.RemoveRowAt(lsb_CurrentACL.SelectedRowIndex)
-		    Else
-		      lsb_CurrentACL.CellTextAt(lsb_CurrentACL.SelectedRowIndex,0)="R"
-		    End
-		  End
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btn_ApplyAccess
-	#tag Event
-		Sub Pressed()
-		  AclHandler.ApplyAcl
-		  ReloadAcl
 		End Sub
 	#tag EndEvent
 #tag EndEvents

@@ -6,9 +6,21 @@ Inherits DesktopApplication
 		  configFolder=  Utils.CreateFolderStructure(SpecialFolder.UserHome,_
 		  ".config/AlwaysOfflineSoftware/LACE/")
 		  
+		  alphabet= Array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", _
+		  "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
+		  
+		  symbology= Array("@", "%", "+", "#", "$", ".", "-", "_", "*", "&")
+		  
+		  numerics= Array("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
+		  
+		  charSet= Array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", _
+		  "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "@", _
+		  "%", "+", "#", "$", ".", "-", "_", "*", "&", "0", "1", "2", "3", "4", "5", _
+		  "6", "7", "8", "9")
+		  
 		  ActivePlugins= Array (0,1,2,3,4,5,6)
 		  
-		  // ClamHandler.CheckForClams
+		  ClamHandler.CheckForClams
 		  
 		  settingsFile= App.configFolder.child("settings.ini")
 		  Var loadedSettings As String
@@ -23,8 +35,6 @@ Inherits DesktopApplication
 		    loadedSettings= defaultSettings
 		    Utils.WriteFile(settingsFile, defaultSettings, True)
 		  End
-		  
-		  Lace.ApplySettings(loadedSettings)
 		End Sub
 	#tag EndEvent
 
@@ -34,7 +44,19 @@ Inherits DesktopApplication
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		alphabet() As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		charSet() As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		configFolder As FolderItem
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		numerics() As String
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -43,6 +65,10 @@ Inherits DesktopApplication
 
 	#tag Property, Flags = &h0
 		settingsFile As folderItem
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		symbology() As String
 	#tag EndProperty
 
 

@@ -9,13 +9,13 @@ Begin DesktopContainer AntivirusBox
    Composited      =   False
    Enabled         =   True
    HasBackgroundColor=   False
-   Height          =   147
+   Height          =   187
    Index           =   -2147483648
    InitialParent   =   ""
    Left            =   0
    LockBottom      =   False
    LockLeft        =   True
-   LockRight       =   False
+   LockRight       =   True
    LockTop         =   True
    TabIndex        =   0
    TabPanelIndex   =   0
@@ -24,38 +24,7 @@ Begin DesktopContainer AntivirusBox
    Top             =   0
    Transparent     =   True
    Visible         =   True
-   Width           =   540
-   Begin DesktopButton btn_Scan
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "Scan"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   26
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   12
-      LockBottom      =   True
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   False
-      MacButtonStyle  =   0
-      Scope           =   0
-      TabIndex        =   0
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   101
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   119
-   End
+   Width           =   539
    Begin DesktopLabel lbl_ClamAV
       AllowAutoDeactivate=   True
       Bold            =   False
@@ -98,7 +67,7 @@ Begin DesktopContainer AntivirusBox
       Height          =   26
       Index           =   -2147483648
       Italic          =   False
-      Left            =   143
+      Left            =   127
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -118,7 +87,7 @@ Begin DesktopContainer AntivirusBox
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   59
+      Width           =   154
    End
    Begin DesktopCheckBox chk_UpdateOnScan
       AllowAutoDeactivate=   True
@@ -142,7 +111,7 @@ Begin DesktopContainer AntivirusBox
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   63
+      Top             =   75
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -154,14 +123,14 @@ Begin DesktopContainer AntivirusBox
       AllowAutoDeactivate=   True
       Bold            =   False
       Caption         =   "Use Heuristics?"
-      Enabled         =   True
+      Enabled         =   False
       FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
       Height          =   26
       Index           =   -2147483648
       Italic          =   False
-      Left            =   192
+      Left            =   12
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -172,43 +141,13 @@ Begin DesktopContainer AntivirusBox
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   ""
-      Top             =   63
+      Top             =   101
       Transparent     =   False
       Underline       =   False
       Value           =   False
       Visible         =   True
       VisualState     =   0
       Width           =   120
-   End
-   Begin DesktopCheckBox chk_RecursiveScan
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Caption         =   "Scan Sub Directories?"
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   26
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   362
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Scope           =   0
-      TabIndex        =   10
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   63
-      Transparent     =   False
-      Underline       =   False
-      Value           =   False
-      Visible         =   True
-      VisualState     =   0
-      Width           =   158
    End
    Begin DesktopLabel lbl_VirusDatabase
       AllowAutoDeactivate=   True
@@ -220,7 +159,7 @@ Begin DesktopContainer AntivirusBox
       Height          =   26
       Index           =   -2147483648
       Italic          =   False
-      Left            =   228
+      Left            =   293
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -252,7 +191,7 @@ Begin DesktopContainer AntivirusBox
       Height          =   26
       Index           =   -2147483648
       Italic          =   False
-      Left            =   308
+      Left            =   361
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -272,7 +211,7 @@ Begin DesktopContainer AntivirusBox
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   80
+      Width           =   146
    End
    Begin DesktopSeparator sep_1
       Active          =   False
@@ -282,7 +221,7 @@ Begin DesktopContainer AntivirusBox
       Height          =   31
       Index           =   -2147483648
       InitialParent   =   ""
-      Left            =   192
+      Left            =   272
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -324,7 +263,7 @@ Begin DesktopContainer AntivirusBox
       Top             =   31
       Transparent     =   False
       Visible         =   True
-      Width           =   508
+      Width           =   507
       _mIndex         =   0
       _mInitialParent =   ""
       _mName          =   ""
@@ -340,10 +279,10 @@ Begin DesktopContainer AntivirusBox
       Height          =   26
       Index           =   -2147483648
       Italic          =   False
-      Left            =   143
+      Left            =   20
       LockBottom      =   True
       LockedInPosition=   False
-      LockLeft        =   False
+      LockLeft        =   True
       LockRight       =   True
       LockTop         =   False
       Multiline       =   False
@@ -353,29 +292,132 @@ Begin DesktopContainer AntivirusBox
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "CLAMAV IS NOT INSTALLED"
-      TextAlignment   =   0
+      TextAlignment   =   1
       TextColor       =   &cCB680000
       Tooltip         =   ""
-      Top             =   101
+      Top             =   156
       Transparent     =   False
       Underline       =   True
       Visible         =   True
-      Width           =   377
+      Width           =   499
+   End
+   Begin DesktopCheckBox chk_RecursiveScan
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Caption         =   "Scan Sub Directories?"
+      Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   26
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   12
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   17
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   49
+      Transparent     =   False
+      Underline       =   False
+      Value           =   False
+      Visible         =   True
+      VisualState     =   0
+      Width           =   158
+   End
+   Begin DesktopBevelButton btn_Scan
+      Active          =   False
+      AllowAutoDeactivate=   True
+      AllowFocus      =   True
+      AllowTabStop    =   True
+      BackgroundColor =   &c00000000
+      BevelStyle      =   2
+      Bold            =   False
+      ButtonStyle     =   0
+      Caption         =   "Scan"
+      CaptionAlignment=   3
+      CaptionDelta    =   0
+      CaptionPosition =   4
+      Enabled         =   False
+      FontName        =   "Liberation Sans"
+      FontSize        =   0.0
+      FontUnit        =   0
+      HasBackgroundColor=   False
+      Height          =   90
+      Icon            =   2111371263
+      IconAlignment   =   6
+      IconDeltaX      =   78
+      IconDeltaY      =   10
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   308
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   False
+      LockRight       =   True
+      LockTop         =   True
+      MenuStyle       =   0
+      PanelIndex      =   0
+      Scope           =   0
+      TabIndex        =   18
+      TabPanelIndex   =   0
+      TextColor       =   &c00000000
+      Tooltip         =   ""
+      Top             =   54
+      Transparent     =   False
+      Underline       =   False
+      Value           =   False
+      Visible         =   True
+      Width           =   210
+      _mIndex         =   0
+      _mInitialParent =   ""
+      _mName          =   ""
+      _mPanelIndex    =   0
    End
 End
 #tag EndDesktopWindow
 
 #tag WindowCode
+	#tag Event
+		Sub Opening()
+		  
+		End Sub
+	#tag EndEvent
+
+
 #tag EndWindowCode
 
+#tag Events lbl_ClamAVDisplay
+	#tag Event
+		Sub Opening()
+		  me.Text= ClamHandler.GetVersion(True)
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events lbl_VirusDBDisplay
+	#tag Event
+		Sub Opening()
+		  Me.Text= ClamHandler.GetVersion(False)
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag Events lbl_InstallCheck
 	#tag Event
 		Sub Opening()
 		  Var myClamLevel As Integer= ClamHandler.GetClamLevel
 		  
 		  If(myClamLevel= 3) Then
-		    Me.Enabled= False
-		    Me.Visible= False
+		    Me.Enabled= True
+		    Me.Visible= True
+		    Me.Text="ClamAV is ready!"
 		  ElseIf(myClamLevel= 1) Then
 		    Me.Enabled= True
 		    Me.Visible= True
@@ -389,6 +431,15 @@ End
 		    Me.Visible= True
 		    Me.Text="ClamAV IS NOT INSTALLED"
 		  End
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btn_Scan
+	#tag Event
+		Sub Pressed()
+		  ClamHandler.VirusScan(MainScreen.txt_FileSelected.Text, _
+		  Self.chk_RecursiveScan.Value, _
+		  Self.chk_UpdateOnScan.Value)
 		End Sub
 	#tag EndEvent
 #tag EndEvents

@@ -400,8 +400,8 @@ End
 		  Var aclExists As Boolean
 		  Var completeRecord() As String
 		  
-		  For rowNum As Integer=0 To MainScreen.lsb_CurrentACL.LastRowIndex
-		    If(MainScreen.lsb_CurrentACL.CellTextAt(rowNum,2)=addingName) Then
+		  For rowNum As Integer=0 To MainScreen.cust_AccessControl.lsb_CurrentACL.LastRowIndex
+		    If(MainScreen.cust_AccessControl.lsb_CurrentACL.CellTextAt(rowNum,2)=addingName) Then
 		      aclExists= True // ACL item already exists
 		    End
 		  Next
@@ -436,7 +436,7 @@ End
 		    completeRecord.add(addingName)
 		    completeRecord.add(addingPerms)
 		    
-		    MainScreen.lsb_CurrentACL.AddRow(completeRecord)
+		    MainScreen.cust_AccessControl.lsb_CurrentACL.AddRow(completeRecord)
 		    AddACLScreen.close
 		  End
 		  

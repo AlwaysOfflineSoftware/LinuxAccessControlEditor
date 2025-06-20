@@ -27,19 +27,6 @@ Protected Module Utils
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function FolderItemToMemblock(path as folderItem) As memoryBlock
-		  Var bs As BinaryStream
-		  Var binData As MemoryBlock      // change string to memoryblock, and don't create one with New
-		  
-		  bs = BinaryStream.Open(path)
-		  binData = bs.Read(bs.Length)
-		  
-		  Return binData
-		  
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Sub GeneratePopup(typeCode as integer, message as String, explain as String)
 		  Var diag As New MessageDialog                  // declare the MessageDialog object
 		  Var clickItem As MessageDialogButton                // for handling the result
@@ -66,62 +53,6 @@ Protected Module Utils
 		    clickItem.Cancel= true
 		  End Select
 		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function Hash(data as String, hashLevel as integer = 5) As MemoryBlock
-		  If(hashLevel= 1) Then
-		    Return Crypto.Hash(HashSaltInput(data), Crypto.HashAlgorithms.SHA1)
-		    
-		  ElseIf(hashLevel= 2) Then
-		    Return Crypto.Hash(HashSaltInput(data), Crypto.HashAlgorithms.SHA2_256)
-		    
-		  ElseIf(hashLevel= 3) Then
-		    Return Crypto.Hash(HashSaltInput(data), Crypto.HashAlgorithms.SHA2_512)
-		    
-		  ElseIf(hashLevel= 4) Then
-		    Return Crypto.Hash(HashSaltInput(data), Crypto.HashAlgorithms.SHA3_256)
-		    
-		  ElseIf(hashLevel= 5) Then
-		    Return Crypto.Hash(HashSaltInput(data), Crypto.HashAlgorithms.SHA3_512)
-		    
-		  Else
-		    Return Crypto.Hash(HashSaltInput(data), Crypto.HashAlgorithms.SHA3_512)
-		  End
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h21
-		Private Function HashSaltInput(data as String, customSalt as String = "") As String
-		  Var dataArr() As String= data.Split("")
-		  Var alphabet() As String= Array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U")
-		  Var letters As Integer= 0
-		  Var numerics As Integer= 0
-		  
-		  
-		  If(customSalt<>"") Then
-		    Return customSalt+ data+ customSalt
-		    
-		  Else
-		    For Each item As String In dataArr
-		      For Each char As String In alphabet
-		        If(item= char) Then
-		          letters= letters+1
-		          Exit
-		        End
-		      Next
-		      
-		      If(item.IsNumeric) Then
-		        numerics= numerics+1
-		        Continue
-		      End
-		    Next
-		    
-		    Return "LACE"+ letters.ToString+ numerics.ToString+ "__"+_
-		    data+"__"+ numerics.ToString+ letters.ToString+ "LACE"
-		    
-		  End
-		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
