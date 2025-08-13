@@ -25,273 +25,6 @@ Begin DesktopWindow MainScreen
    Type            =   0
    Visible         =   True
    Width           =   800
-   Begin DesktopTextField txt_FileSelected
-      AllowAutoDeactivate=   True
-      AllowFocusRing  =   True
-      AllowSpellChecking=   False
-      AllowTabs       =   False
-      BackgroundColor =   &cFFFFFF
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "Liberation Serif"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Format          =   ""
-      HasBorder       =   True
-      Height          =   27
-      Hint            =   ""
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   112
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   True
-      LockTop         =   True
-      MaximumCharactersAllowed=   0
-      Password        =   False
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   15
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   ""
-      TextAlignment   =   0
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   20
-      Transparent     =   False
-      Underline       =   False
-      ValidationMask  =   ""
-      Visible         =   True
-      Width           =   458
-   End
-   Begin DesktopButton btn_BrowseForDir
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "Browse Directory"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "Liberation Serif"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   26
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   674
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   False
-      LockRight       =   True
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   0
-      TabIndex        =   16
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   "Browse to a file or directory you wish to modify"
-      Top             =   20
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   106
-   End
-   Begin DesktopLabel lbl_FileDirSelected
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "Liberation Serif"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   26
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   20
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   2
-      Selectable      =   False
-      TabIndex        =   17
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "File/Directory:"
-      TextAlignment   =   0
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   20
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   100
-   End
-   Begin DesktopButton btn_BrowseForFile
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "Browse File"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "Liberation Serif"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   26
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   582
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   False
-      LockRight       =   True
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   0
-      TabIndex        =   38
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   "Browse to a file or directory you wish to modify"
-      Top             =   20
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   80
-   End
-   Begin DesktopLabel lbl_CurrentPermDisplay
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "Liberation Sans"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   26
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   741
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   False
-      LockRight       =   True
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   42
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "0 0 0"
-      TextAlignment   =   0
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   59
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   39
-   End
-   Begin DesktopLabel lbl_CurrentPermissions
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "Liberation Sans"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   26
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   597
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   False
-      LockRight       =   True
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   2
-      Selectable      =   False
-      TabIndex        =   43
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Current Permissions:"
-      TextAlignment   =   0
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   59
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   132
-   End
-   Begin DesktopLabel lbl_OwnerCurrent
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "Liberation Serif"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   26
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   112
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   44
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Owner"
-      TextAlignment   =   0
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   58
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   235
-   End
-   Begin DesktopLabel lbl_GroupCurrent
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "Liberation Serif"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   27
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   359
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Multiline       =   False
-      Scope           =   0
-      Selectable      =   False
-      TabIndex        =   45
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Group"
-      TextAlignment   =   0
-      TextColor       =   &c000000
-      Tooltip         =   ""
-      Top             =   59
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   226
-   End
    Begin DesktopSeparator sep_1
       Active          =   False
       AllowAutoDeactivate=   True
@@ -320,37 +53,6 @@ Begin DesktopWindow MainScreen
       _mName          =   ""
       _mPanelIndex    =   0
    End
-   Begin DesktopButton btn_cancel
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Cancel          =   False
-      Caption         =   "Clear"
-      Default         =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   26
-      Index           =   -2147483648
-      Italic          =   False
-      Left            =   7
-      LockBottom      =   False
-      LockedInPosition=   False
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacButtonStyle  =   0
-      Scope           =   0
-      TabIndex        =   48
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Tooltip         =   ""
-      Top             =   59
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   80
-   End
    Begin DesktopTabPanel tab_Main
       AllowAutoDeactivate=   True
       Bold            =   False
@@ -370,7 +72,7 @@ Begin DesktopWindow MainScreen
       Panels          =   ""
       Scope           =   0
       SmallTabs       =   True
-      TabDefinition   =   "Ownership\rPermissions\rAccess Control\rEncryption\rAntivirus\rSandboxing\rLogs"
+      TabDefinition   =   "Ownership\rPermissions\rAccess Control\rEncryption\rAntivirus\rSandboxing\rStartup\rLogs"
       TabIndex        =   59
       TabPanelIndex   =   0
       TabStop         =   True
@@ -378,7 +80,7 @@ Begin DesktopWindow MainScreen
       Top             =   90
       Transparent     =   False
       Underline       =   False
-      Value           =   4
+      Value           =   5
       Visible         =   True
       Width           =   800
       Begin OwnerBox cust_Owner
@@ -391,137 +93,26 @@ Begin DesktopWindow MainScreen
          Composited      =   False
          Enabled         =   True
          HasBackgroundColor=   False
-         Height          =   217
+         Height          =   284
          Index           =   -2147483648
          InitialParent   =   "tab_Main"
-         Left            =   20
+         Left            =   0
          LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
          LockRight       =   True
          LockTop         =   True
+         oldGroup        =   ""
+         oldOwner        =   ""
          Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   1
          TabStop         =   True
          Tooltip         =   ""
-         Top             =   128
+         Top             =   116
          Transparent     =   True
          Visible         =   True
-         Width           =   760
-      End
-      Begin DesktopButton btn_ApplyOwnership
-         AllowAutoDeactivate=   True
-         Bold            =   False
-         Cancel          =   False
-         Caption         =   "Apply"
-         Default         =   True
-         Enabled         =   True
-         FontName        =   "Liberation Serif"
-         FontSize        =   0.0
-         FontUnit        =   0
-         Height          =   26
-         Index           =   -2147483648
-         InitialParent   =   "tab_Main"
-         Italic          =   False
-         Left            =   700
-         LockBottom      =   True
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   True
-         LockTop         =   False
-         MacButtonStyle  =   0
-         Scope           =   0
-         TabIndex        =   1
-         TabPanelIndex   =   1
-         TabStop         =   True
-         Tooltip         =   "Apply any changes to permissions and owners"
-         Top             =   357
-         Transparent     =   False
-         Underline       =   False
-         Visible         =   True
-         Width           =   80
-      End
-      Begin DesktopListBox lsb_SecurityLogs
-         AllowAutoDeactivate=   True
-         AllowAutoHideScrollbars=   True
-         AllowExpandableRows=   False
-         AllowFocusRing  =   True
-         AllowResizableColumns=   False
-         AllowRowDragging=   False
-         AllowRowReordering=   False
-         Bold            =   False
-         ColumnCount     =   3
-         ColumnWidths    =   "120,420,180"
-         DefaultRowHeight=   -1
-         DropIndicatorVisible=   False
-         Enabled         =   True
-         FontName        =   "System"
-         FontSize        =   0.0
-         FontUnit        =   0
-         GridLineStyle   =   1
-         HasBorder       =   True
-         HasHeader       =   True
-         HasHorizontalScrollbar=   False
-         HasVerticalScrollbar=   True
-         HeadingIndex    =   -1
-         Height          =   215
-         Index           =   -2147483648
-         InitialParent   =   "tab_Main"
-         InitialValue    =   "Tool	Event	Time Stamp"
-         Italic          =   False
-         Left            =   20
-         LockBottom      =   True
-         LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   True
-         LockTop         =   True
-         RequiresSelection=   False
-         RowSelectionType=   0
-         Scope           =   0
-         TabIndex        =   0
-         TabPanelIndex   =   7
-         TabStop         =   True
-         Tooltip         =   ""
-         Top             =   128
-         Transparent     =   False
-         Underline       =   False
-         Visible         =   True
-         Width           =   760
-         _ScrollOffset   =   0
-         _ScrollWidth    =   -1
-      End
-      Begin DesktopButton btn_ExportLogs
-         AllowAutoDeactivate=   True
-         Bold            =   False
-         Cancel          =   False
-         Caption         =   "Export Logs"
-         Default         =   False
-         Enabled         =   True
-         FontName        =   "System"
-         FontSize        =   0.0
-         FontUnit        =   0
-         Height          =   26
-         Index           =   -2147483648
-         InitialParent   =   "tab_Main"
-         Italic          =   False
-         Left            =   686
-         LockBottom      =   True
-         LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   False
-         LockTop         =   False
-         MacButtonStyle  =   0
-         Scope           =   0
-         TabIndex        =   1
-         TabPanelIndex   =   7
-         TabStop         =   True
-         Tooltip         =   ""
-         Top             =   355
-         Transparent     =   False
-         Underline       =   False
-         Visible         =   True
-         Width           =   94
+         Width           =   800
       End
       Begin PermissionsBox cust_Permissions
          AllowAutoDeactivate=   True
@@ -533,56 +124,25 @@ Begin DesktopWindow MainScreen
          Composited      =   False
          Enabled         =   True
          HasBackgroundColor=   False
-         Height          =   215
+         Height          =   286
          Index           =   -2147483648
          InitialParent   =   "tab_Main"
-         Left            =   20
+         Left            =   0
          LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
          LockRight       =   True
          LockTop         =   True
+         oldPermissions  =   "000"
          Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   2
          TabStop         =   True
          Tooltip         =   ""
-         Top             =   128
+         Top             =   115
          Transparent     =   True
          Visible         =   True
-         Width           =   760
-      End
-      Begin DesktopButton btn_ApplyPermissions
-         AllowAutoDeactivate=   True
-         Bold            =   False
-         Cancel          =   False
-         Caption         =   "Apply"
-         Default         =   True
-         Enabled         =   True
-         FontName        =   "Liberation Serif"
-         FontSize        =   0.0
-         FontUnit        =   0
-         Height          =   26
-         Index           =   -2147483648
-         InitialParent   =   "tab_Main"
-         Italic          =   False
-         Left            =   700
-         LockBottom      =   True
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   True
-         LockTop         =   False
-         MacButtonStyle  =   0
-         Scope           =   0
-         TabIndex        =   1
-         TabPanelIndex   =   2
-         TabStop         =   True
-         Tooltip         =   "Apply any changes to permissions and owners"
-         Top             =   355
-         Transparent     =   False
-         Underline       =   False
-         Visible         =   True
-         Width           =   80
+         Width           =   800
       End
       Begin AccessControlBox cust_AccessControl
          AllowAutoDeactivate=   True
@@ -594,24 +154,24 @@ Begin DesktopWindow MainScreen
          Composited      =   False
          Enabled         =   True
          HasBackgroundColor=   False
-         Height          =   246
+         Height          =   285
          Index           =   -2147483648
          InitialParent   =   "tab_Main"
-         Left            =   20
-         LockBottom      =   False
+         Left            =   0
+         LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
-         LockRight       =   False
+         LockRight       =   True
          LockTop         =   True
          Scope           =   0
          TabIndex        =   0
          TabPanelIndex   =   3
          TabStop         =   True
          Tooltip         =   ""
-         Top             =   128
+         Top             =   116
          Transparent     =   False
          Visible         =   True
-         Width           =   760
+         Width           =   800
       End
       Begin PasswordsBox cust_Passwords
          AllowAutoDeactivate=   True
@@ -623,10 +183,10 @@ Begin DesktopWindow MainScreen
          Composited      =   False
          Enabled         =   True
          HasBackgroundColor=   False
-         Height          =   214
+         Height          =   284
          Index           =   -2147483648
          InitialParent   =   "tab_Main"
-         Left            =   20
+         Left            =   0
          LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
@@ -637,139 +197,12 @@ Begin DesktopWindow MainScreen
          TabPanelIndex   =   4
          TabStop         =   True
          Tooltip         =   ""
-         Top             =   128
+         Top             =   116
          Transparent     =   True
          Visible         =   True
-         Width           =   760
+         Width           =   800
       End
-      Begin DesktopButton btn_EncyptFile
-         AllowAutoDeactivate=   True
-         Bold            =   False
-         Cancel          =   False
-         Caption         =   "Encrypt"
-         Default         =   False
-         Enabled         =   False
-         FontName        =   "System"
-         FontSize        =   0.0
-         FontUnit        =   0
-         Height          =   26
-         Index           =   -2147483648
-         InitialParent   =   "tab_Main"
-         Italic          =   False
-         Left            =   689
-         LockBottom      =   True
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   True
-         LockTop         =   False
-         MacButtonStyle  =   0
-         Scope           =   0
-         TabIndex        =   1
-         TabPanelIndex   =   4
-         TabStop         =   True
-         Tooltip         =   "Encrypts the loaded file with the password provided above (ZipCrypto)"
-         Top             =   354
-         Transparent     =   False
-         Underline       =   False
-         Visible         =   True
-         Width           =   91
-      End
-      Begin DesktopButton btn_DecryptFile
-         AllowAutoDeactivate=   True
-         Bold            =   False
-         Cancel          =   False
-         Caption         =   "Decrypt"
-         Default         =   False
-         Enabled         =   False
-         FontName        =   "System"
-         FontSize        =   0.0
-         FontUnit        =   0
-         Height          =   26
-         Index           =   -2147483648
-         InitialParent   =   "tab_Main"
-         Italic          =   False
-         Left            =   587
-         LockBottom      =   True
-         LockedInPosition=   False
-         LockLeft        =   False
-         LockRight       =   True
-         LockTop         =   False
-         MacButtonStyle  =   0
-         Scope           =   0
-         TabIndex        =   2
-         TabPanelIndex   =   4
-         TabStop         =   True
-         Tooltip         =   "Decrypts the loaded file with the password provided above"
-         Top             =   354
-         Transparent     =   False
-         Underline       =   False
-         Visible         =   True
-         Width           =   91
-      End
-      Begin DesktopPopupMenu pop_Algorithm
-         AllowAutoDeactivate=   True
-         Bold            =   False
-         Enabled         =   True
-         FontName        =   "System"
-         FontSize        =   0.0
-         FontUnit        =   0
-         Height          =   26
-         Index           =   -2147483648
-         InitialParent   =   "tab_Main"
-         InitialValue    =   "AES\nZip Crypto"
-         Italic          =   False
-         Left            =   461
-         LockBottom      =   False
-         LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   False
-         LockTop         =   True
-         Scope           =   0
-         SelectedRowIndex=   0
-         TabIndex        =   3
-         TabPanelIndex   =   4
-         TabStop         =   True
-         Tooltip         =   ""
-         Top             =   347
-         Transparent     =   False
-         Underline       =   False
-         Visible         =   True
-         Width           =   114
-      End
-      Begin DesktopLabel lbl_ComingSoon2
-         AllowAutoDeactivate=   True
-         Bold            =   False
-         Enabled         =   True
-         FontName        =   "System"
-         FontSize        =   0.0
-         FontUnit        =   0
-         Height          =   26
-         Index           =   -2147483648
-         InitialParent   =   "tab_Main"
-         Italic          =   False
-         Left            =   319
-         LockBottom      =   False
-         LockedInPosition=   False
-         LockLeft        =   True
-         LockRight       =   False
-         LockTop         =   True
-         Multiline       =   False
-         Scope           =   2
-         Selectable      =   False
-         TabIndex        =   0
-         TabPanelIndex   =   6
-         TabStop         =   True
-         Text            =   "Coming in a later version!"
-         TextAlignment   =   0
-         TextColor       =   &c000000
-         Tooltip         =   ""
-         Top             =   238
-         Transparent     =   False
-         Underline       =   False
-         Visible         =   True
-         Width           =   163
-      End
-      Begin AntivirusBox AntivirusBox1
+      Begin AntivirusBox cust_antivirus
          AllowAutoDeactivate=   True
          AllowFocus      =   False
          AllowFocusRing  =   False
@@ -779,10 +212,10 @@ Begin DesktopWindow MainScreen
          Composited      =   False
          Enabled         =   True
          HasBackgroundColor=   False
-         Height          =   253
+         Height          =   286
          Index           =   -2147483648
          InitialParent   =   "tab_Main"
-         Left            =   20
+         Left            =   0
          LockBottom      =   True
          LockedInPosition=   False
          LockLeft        =   True
@@ -793,11 +226,127 @@ Begin DesktopWindow MainScreen
          TabPanelIndex   =   5
          TabStop         =   True
          Tooltip         =   ""
-         Top             =   128
+         Top             =   115
          Transparent     =   True
          Visible         =   True
-         Width           =   760
+         Width           =   800
       End
+      Begin MonitoringBox cust_Monitoring
+         AllowAutoDeactivate=   True
+         AllowFocus      =   False
+         AllowFocusRing  =   False
+         AllowTabs       =   True
+         Backdrop        =   0
+         BackgroundColor =   &cFFFFFF
+         Composited      =   False
+         Enabled         =   True
+         HasBackgroundColor=   False
+         Height          =   283
+         Index           =   -2147483648
+         InitialParent   =   "tab_Main"
+         Left            =   0
+         LockBottom      =   True
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   True
+         LockTop         =   True
+         Scope           =   0
+         TabIndex        =   0
+         TabPanelIndex   =   7
+         TabStop         =   True
+         Tooltip         =   ""
+         Top             =   117
+         Transparent     =   False
+         Visible         =   True
+         Width           =   800
+      End
+      Begin LogsBox cust_logs
+         AllowAutoDeactivate=   True
+         AllowFocus      =   False
+         AllowFocusRing  =   False
+         AllowTabs       =   True
+         Backdrop        =   0
+         BackgroundColor =   &cFFFFFF
+         Composited      =   False
+         Enabled         =   True
+         HasBackgroundColor=   False
+         Height          =   284
+         Index           =   -2147483648
+         InitialParent   =   "tab_Main"
+         Left            =   0
+         LockBottom      =   True
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   True
+         LockTop         =   True
+         Scope           =   0
+         TabIndex        =   0
+         TabPanelIndex   =   8
+         TabStop         =   True
+         Tooltip         =   ""
+         Top             =   116
+         Transparent     =   False
+         Visible         =   True
+         Width           =   800
+      End
+      Begin SandboxBox cust_Sandbox
+         AllowAutoDeactivate=   True
+         AllowFocus      =   False
+         AllowFocusRing  =   False
+         AllowTabs       =   True
+         Backdrop        =   0
+         BackgroundColor =   &cFFFFFF
+         Composited      =   False
+         Enabled         =   True
+         HasBackgroundColor=   False
+         Height          =   286
+         Index           =   -2147483648
+         InitialParent   =   "tab_Main"
+         Left            =   0
+         LockBottom      =   True
+         LockedInPosition=   False
+         LockLeft        =   True
+         LockRight       =   True
+         LockTop         =   True
+         Scope           =   0
+         TabIndex        =   0
+         TabPanelIndex   =   6
+         TabStop         =   True
+         Tooltip         =   ""
+         Top             =   115
+         Transparent     =   False
+         Visible         =   True
+         Width           =   800
+      End
+   End
+   Begin HeaderBox cust_Header
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   False
+      AllowTabs       =   True
+      Backdrop        =   0
+      BackgroundColor =   &cFFFFFF
+      Composited      =   False
+      Enabled         =   True
+      HasBackgroundColor=   False
+      Height          =   86
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Left            =   0
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   True
+      LockTop         =   True
+      Scope           =   0
+      TabIndex        =   60
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   ""
+      Top             =   0
+      Transparent     =   False
+      Visible         =   True
+      Width           =   800
    End
 End
 #tag EndDesktopWindow
@@ -838,146 +387,6 @@ End
 
 #tag EndWindowCode
 
-#tag Events txt_FileSelected
-	#tag Event
-		Function KeyDown(key As String) As Boolean
-		  If((Key = Chr(3) Or Key = Chr(13)) And Me.Text<>"") Then
-		    Lace.LoadFileToEditor(me.Text)
-		  ElseIf((Key = Chr(3) Or Key = Chr(13)) And Me.Text="") Then
-		    cust_Permissions.clearChecks
-		    cust_Owner.txt_Owner.Text=""
-		    cust_Owner.txt_Group.Text=""
-		  End
-		  
-		  
-		End Function
-	#tag EndEvent
-	#tag Event
-		Sub TextChanged()
-		  If(Utils.ValidatePath(Me.Text) And Me.Text.CountFields("/")>= 3) Then
-		    Self.btn_DecryptFile.Enabled= True
-		    Self.btn_EncyptFile.Enabled= True
-		  Else
-		    Self.btn_DecryptFile.Enabled= False
-		    Self.btn_EncyptFile.Enabled= False
-		  End
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btn_BrowseForDir
-	#tag Event
-		Sub Pressed()
-		  ClearGui
-		  App.SelectedFile= Utils.SelectTargetDialog("home",True)
-		  
-		  If(App.SelectedFile<>Nil) Then
-		    txt_FileSelected.Text= App.SelectedFile.NativePath
-		    
-		    //last
-		    If(Self.txt_FileSelected.Text<>"") Then
-		      Lace.LoadFileToEditor(txt_FileSelected.Text)
-		    ElseIf(Self.txt_FileSelected.Text="") Then
-		      cust_Permissions.clearChecks
-		      cust_Owner.txt_Owner.Text=""
-		      cust_Owner.txt_Group.Text=""
-		    End
-		    
-		    cust_Owner._User.Text="User"
-		    cust_Owner._Group.Text="Group"
-		    LoggingHandler.UpdateLog("LACE","Loaded: " + App.SelectedFile.NativePath)
-		  End
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btn_BrowseForFile
-	#tag Event
-		Sub Pressed()
-		  ClearGui
-		  App.SelectedFile= Utils.SelectTargetDialog("home",False)
-		  
-		  If(App.SelectedFile<>Nil) Then
-		    txt_FileSelected.Text= App.SelectedFile.NativePath
-		    
-		    //last
-		    If(Self.txt_FileSelected.Text<>"") Then
-		      Lace.LoadFileToEditor(txt_FileSelected.Text)
-		    ElseIf(Self.txt_FileSelected.Text="") Then
-		      cust_Permissions.clearChecks
-		      cust_Owner.txt_Owner.Text=""
-		      cust_Owner.txt_Group.Text=""
-		    End
-		    
-		    cust_Owner._User.Text="User"
-		    cust_Owner._Group.Text="Group"
-		    LoggingHandler.UpdateLog("LACE","Loaded: " + App.SelectedFile.NativePath)
-		  End
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btn_cancel
-	#tag Event
-		Sub Pressed()
-		  Lace.ClearGui
-		  Self.btn_DecryptFile.Enabled= False
-		  Self.btn_EncyptFile.Enabled= False
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btn_ApplyOwnership
-	#tag Event
-		Sub Pressed()
-		  OwnerHandler.ApplyOwnerGroup
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btn_ExportLogs
-	#tag Event
-		Sub Pressed()
-		  LoggingHandler.ExportLog("Log_"+ DateTime.Now.Year.ToString+ DateTime.Now.Month.ToString+_
-		  DateTime.Now.Day.ToString+ "_"+ DateTime.Now.Hour.ToString+ DateTime.Now.Minute.ToString+_ 
-		  DateTime.Now.Second.ToString+ ".txt")
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btn_ApplyPermissions
-	#tag Event
-		Sub Pressed()
-		  PermissionHandler.ApplyPermissions
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btn_EncyptFile
-	#tag Event
-		Sub Pressed()
-		  If(Self.pop_Algorithm.SelectedRowText="AES") Then
-		    PasswordHandler.EncryptAES(app.selectedFile,Self.cust_Passwords.txt_TestPassword.Text)
-		    Utils.GeneratePopup(1,"File was AES Encrypted!", "Secure against most threats with a good password")
-		    
-		  ElseIf(Self.pop_Algorithm.SelectedRowText="Zip Crypto") Then
-		    PasswordHandler.EncryptedZip(App.selectedFile, Self.cust_Passwords.txt_TestPassword.Text)
-		    Utils.GeneratePopup(1,"File was zipped & Encrypted!", "More secure than plain text and smaller")
-		    
-		  ElseIf(Self.pop_Algorithm.SelectedRowText="Simple Ceasar") Then
-		    
-		    Utils.GeneratePopup(1,"File was scrambled!", "")
-		  Else
-		    PasswordHandler.EncryptAES(app.selectedFile,Self.cust_Passwords.txt_TestPassword.Text)
-		    Utils.GeneratePopup(1,"File was AES Encrypted!", "Secure against most threats with a good password")
-		  End
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btn_DecryptFile
-	#tag Event
-		Sub Pressed()
-		  PasswordInputScreen.Show
-		  
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="HasTitleBar"

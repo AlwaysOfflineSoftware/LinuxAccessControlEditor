@@ -18,20 +18,13 @@ Inherits DesktopApplication
 		  "%", "+", "#", "$", ".", "-", "_", "*", "&", "0", "1", "2", "3", "4", "5", _
 		  "6", "7", "8", "9")
 		  
-		  ActivePlugins= Array (0,1,2,3,4,5,6)
-		  
-		  ClamHandler.CheckForClams
-		  
 		  settingsFile= App.configFolder.child("settings.ini")
 		  Var loadedSettings As String
 		  
 		  If(Utils.ValidatePath(settingsFile.NativePath)) Then
 		    loadedSettings= Utils.ReadFile(settingsFile)
 		  Else
-		    Var defaultSettings As String= "plugin_accesscontrol:true" + EndOfLine + _
-		    "plugin_encryption:true" + EndOfLine + _
-		    "plugin_antivirus:true" + EndOfLine + _
-		    "plugin_sandboxing:true" + EndOfLine
+		    Var defaultSettings As String= ""
 		    loadedSettings= defaultSettings
 		    Utils.WriteFile(settingsFile, defaultSettings, True)
 		  End
@@ -88,6 +81,14 @@ Inherits DesktopApplication
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="ProcessID"
+			Visible=false
+			Group="Behavior"
+			InitialValue=""
+			Type="Integer"
+			EditorType=""
+		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Name"
 			Visible=false

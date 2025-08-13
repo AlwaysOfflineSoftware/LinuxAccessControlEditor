@@ -170,6 +170,217 @@ End
 #tag EndDesktopWindow
 
 #tag WindowCode
+	#tag Method, Flags = &h0
+		Sub ApplyAcl()
+		  Var actionRecords() As String
+		  Var splitAction() As String
+		  
+		  actionRecords= GetActionItems()
+		  
+		  If(actionRecords.Count>0) Then
+		    For Each action As String In actionRecords
+		      splitAction= action.Split("|")
+		      // System.DebugLog(splitAction(actionType))
+		      If(splitAction(actionType)="R") Then
+		        If(splitAction(entityType)="G") Then
+		          RemoveAccessList(loadedItem,splitAction(entityName),True)
+		        ElseIf(splitAction(entityType)="U") Then
+		          RemoveAccessList(loadedItem,splitAction(entityName),False)
+		        End
+		        LoggingHandler.UpdateLog("ACL","REMOVED: " + splitAction(entityName))
+		        
+		      ElseIf(splitAction(actionType)="A") Then
+		        If(splitAction(entityType)="G") Then
+		          SetAccessList(loadedItem,"u",splitAction(entityName),splitAction(permCodes))
+		        ElseIf(splitAction(entityType)="U") Then
+		          SetAccessList(loadedItem,"g",splitAction(entityName),splitAction(permCodes))
+		        End
+		        LoggingHandler.UpdateLog("ACL","ADDED: " + splitAction(entityName))
+		      End
+		      
+		    Next
+		    LoggingHandler.UpdateLog("ACL","APPLIED: ACL Change")
+		  End
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function ChainAcl() As String
+		  Var finalActionString As String
+		  Var actionRecords() As String
+		  Var splitAction() As String
+		  
+		  actionRecords= GetActionItems()
+		  
+		  // "setfacl -m " + """" + entityType + ":" + entityName + ":" +_ 
+		  // accessString + """ """ + target + """"
+		  
+		  // "setfacl -x u:" + entityName + " " + target
+		  
+		  If(actionRecords.Count>0) Then
+		    For Each action As String In actionRecords
+		      splitAction= action.Split("|")
+		      
+		      If(splitAction(actionType)="R") Then
+		        If(splitAction(entityType)="G") Then
+		          finalActionString= finalActionString + "setfacl -x g:" + loadedItem +_
+		          " " + splitAction(entityName) + " && "
+		        ElseIf(splitAction(entityType)="U") Then
+		          finalActionString= finalActionString + "setfacl -x u:" + loadedItem +_
+		          " " + splitAction(entityName) + " && "
+		        End
+		        
+		      ElseIf(splitAction(actionType)="A") Then
+		        If(splitAction(entityType)="G") Then
+		          finalActionString= finalActionString + "setfacl -m " + """" + "u" + ":" +_
+		          splitAction(entityName) + ":" + splitAction(permCodes) + """ """ + loadedItem + """" + " && "
+		        ElseIf(splitAction(entityType)="U") Then
+		          finalActionString= finalActionString + "setfacl -m " + """" + "g" + ":" +_
+		          splitAction(entityName) + ":" + splitAction(permCodes) + """ """ + loadedItem + """" + " && "
+		        End
+		      End
+		    Next
+		  End
+		  
+		  Return finalActionString.Left(finalActionString.Length-4)
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function CheckForChange() As Boolean
+		  Var tempRecord As String
+		  Var actionRecords() As String
+		  
+		  For rowNum As Integer=0 To MainScreen.cust_AccessControl.lsb_CurrentACL.LastRowIndex
+		    If(MainScreen.cust_AccessControl.lsb_CurrentACL.CellTextAt(rowNum,0)="R") Then
+		      Return True
+		    End
+		    If(MainScreen.cust_AccessControl.lsb_CurrentACL.CellTextAt(rowNum,0)="A") Then
+		      Return True
+		    End
+		    If(MainScreen.cust_AccessControl.lsb_CurrentACL.CellTextAt(rowNum,0)="M") Then
+		      Return True
+		    End
+		  Next
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function GetAccessList(target as String) As String()
+		  Var rawResults As String= ShellCommand("getfacl " + target)
+		  Var separatedResults() As String= rawResults.Split(EndOfLine)
+		  Var resultLines() As String
+		  Var output() As String
+		  
+		  For Each line As String In separatedResults
+		    If(line.Contains("#")) Then
+		      Continue
+		    Else
+		      If(line.Contains("user")) Then
+		        resultLines=line.Split(":")
+		        If(resultLines(1)="") Then
+		          Continue
+		        Else
+		          output.Add("X|U|" + resultLines(1) + "|" + resultLines(2))
+		        End
+		      ElseIf(line.Contains("group")) Then
+		        resultLines=line.Split(":")
+		        If(resultLines(1)="") Then
+		          Continue
+		        Else
+		          output.Add("X|G|" + resultLines(1) + "|" + resultLines(2))
+		        End
+		      End
+		    End
+		  Next
+		  
+		  Return output
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function GetActionItems() As String()
+		  Var tempRecord As String
+		  Var actionRecords() As String
+		  
+		  For rowNum As Integer=0 To MainScreen.cust_AccessControl.lsb_CurrentACL.LastRowIndex
+		    
+		    For colNum As Integer=0 To MainScreen.cust_AccessControl.lsb_CurrentACL.LastColumnIndex
+		      tempRecord= tempRecord + MainScreen.cust_AccessControl.lsb_CurrentACL.CellTextAt(rowNum,colNum) + "|"
+		    Next
+		    
+		    If(MainScreen.cust_AccessControl.lsb_CurrentACL.CellTextAt(rowNum,0)="R") Then
+		      actionRecords.Add(tempRecord)
+		    End
+		    If(MainScreen.cust_AccessControl.lsb_CurrentACL.CellTextAt(rowNum,0)="A") Then
+		      actionRecords.Add(tempRecord)
+		    End
+		  Next
+		  
+		  Return actionRecords
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub ReloadAcl()
+		  MainScreen.cust_AccessControl.lsb_CurrentACL.RemoveAllRows
+		  oldAcl= GetAccessList(loadedItem)
+		  
+		  For Each item As String In oldAcl
+		    // System.DebugLog(item)
+		    MainScreen.cust_AccessControl.lsb_CurrentACL.AddRow(item.Split("|"))
+		  Next
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub RemoveAccessList(target as String, entityName as String, isGroup as Boolean)
+		  If(isGroup) Then 
+		    Utils.ShellCommand("setfacl -x g:" + entityName + " " + target, True)
+		  Else
+		    Utils.ShellCommand("setfacl -x u:" + entityName + " " + target, True)
+		  End
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SetAccessList(target as String, entityType as String, entityName as String, accessString as String)
+		  // System.DebugLog("setfacl -m " + """" + entityType +_
+		  // ":" + entityName + ":" + accessString + """ """ + target + """")
+		  
+		  Utils.ShellCommand("setfacl -m " + """" + entityType +_
+		  ":" + entityName + ":" + accessString + """ """ + target + """", True)
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+
+	#tag Property, Flags = &h21
+		Private actionType As Integer = 0
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private entityName As Integer = 2
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private entityType As Integer = 1
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		oldAcl() As String
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private permCodes As Integer = 3
+	#tag EndProperty
+
+
 #tag EndWindowCode
 
 #tag Events btn_Add
@@ -196,7 +407,7 @@ End
 #tag Events btn_ApplyAccess
 	#tag Event
 		Sub Pressed()
-		  AclHandler.ApplyAcl
+		  ApplyAcl
 		  ReloadAcl
 		End Sub
 	#tag EndEvent

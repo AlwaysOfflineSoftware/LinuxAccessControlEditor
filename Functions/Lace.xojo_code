@@ -5,12 +5,12 @@ Protected Module Lace
 		  MainScreen.cust_AccessControl.lsb_CurrentACL.RemoveAllRows
 		  MainScreen.cust_Owner.chk_ChildrenOwners.Value=False
 		  MainScreen.cust_Permissions.chk_ChildrenPermissions.Value=False
-		  Mainscreen.lbl_CurrentPermDisplay.Text="0 0 0"
+		  Mainscreen.cust_Header.lbl_CurrentPermDisplay.Text="0 0 0"
 		  MainScreen.cust_Owner.txt_Owner.Text=""
 		  MainScreen.cust_Owner.txt_Group.Text=""
-		  MainScreen.txt_FileSelected.Text=""
-		  MainScreen.lbl_OwnerCurrent.Text="Owner"
-		  MainScreen.lbl_GroupCurrent.Text="Group"
+		  MainScreen.cust_Header.txt_FileSelected.Text=""
+		  MainScreen.cust_Header.lbl_OwnerCurrent.Text="Owner"
+		  MainScreen.cust_Header.lbl_GroupCurrent.Text="Group"
 		  MainScreen.cust_Permissions.clearChecks
 		End Sub
 	#tag EndMethod
@@ -18,26 +18,26 @@ Protected Module Lace
 	#tag Method, Flags = &h0
 		Sub LoadFileToEditor(target as String)
 		  App.SelectedFile= New FolderItem(target)
-		  Var permissions As String= GetCurrentPermissions(target)
-		  MainScreen.lbl_CurrentPermDisplay.Text= permissions
+		  Var permissions As String= mainscreen.cust_Permissions.GetCurrentPermissions(target)
+		  MainScreen.cust_Header.lbl_CurrentPermDisplay.Text= permissions
 		  MainScreen.cust_Permissions.CheckboxOrder(permissions)
 		  
-		  Var owners() As String= GetCurrentOwner(target)
+		  Var owners() As String= mainscreen.cust_Owner.GetCurrentOwner(target)
 		  MainScreen.cust_Owner.txt_Owner.Text= owners(0)
 		  MainScreen.cust_Owner.txt_Group.Text= owners(1)
-		  MainScreen.lbl_OwnerCurrent.Text= "Owner: "+ owners(0)
-		  MainScreen.lbl_GroupCurrent.Text= "Group: "+ owners(1)
+		  MainScreen.cust_Header.lbl_OwnerCurrent.Text= "Owner: "+ owners(0)
+		  MainScreen.cust_Header.lbl_GroupCurrent.Text= "Group: "+ owners(1)
 		  
-		  oldAcl= GetAccessList(target)
+		  Mainscreen.cust_AccessControl.oldAcl= Mainscreen.cust_AccessControl.GetAccessList(target)
 		  
-		  For Each item As String In oldAcl
+		  For Each item As String In Mainscreen.cust_AccessControl.oldAcl
 		    // System.DebugLog(item)
 		    MainScreen.cust_AccessControl.lsb_CurrentACL.AddRow(item.Split("|"))
 		  Next
 		  
-		  oldPermissions= permissions
-		  oldOwner= owners(0)
-		  oldGroup= owners(1)
+		  Mainscreen.cust_Permissions.oldPermissions= permissions
+		  Mainscreen.cust_Owner.oldOwner= owners(0)
+		  Mainscreen.cust_Owner.oldGroup= owners(1)
 		  loadedItem= target
 		  
 		  

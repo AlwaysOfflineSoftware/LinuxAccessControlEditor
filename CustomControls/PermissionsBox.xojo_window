@@ -9,7 +9,7 @@ Begin DesktopContainer PermissionsBox
    Composited      =   False
    Enabled         =   True
    HasBackgroundColor=   False
-   Height          =   164
+   Height          =   204
    Index           =   -2147483648
    InitialParent   =   ""
    Left            =   0
@@ -64,7 +64,7 @@ Begin DesktopContainer PermissionsBox
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   82
+      Top             =   91
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -114,7 +114,7 @@ Begin DesktopContainer PermissionsBox
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   46
+      Top             =   55
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -164,7 +164,7 @@ Begin DesktopContainer PermissionsBox
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   11
+      Top             =   20
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -214,7 +214,7 @@ Begin DesktopContainer PermissionsBox
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   82
+      Top             =   91
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -264,7 +264,7 @@ Begin DesktopContainer PermissionsBox
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   46
+      Top             =   55
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -301,7 +301,7 @@ Begin DesktopContainer PermissionsBox
       TextAlignment   =   2
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   11
+      Top             =   20
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -333,7 +333,7 @@ Begin DesktopContainer PermissionsBox
       TextAlignment   =   2
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   46
+      Top             =   55
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -365,7 +365,7 @@ Begin DesktopContainer PermissionsBox
       TextAlignment   =   2
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   82
+      Top             =   91
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -397,7 +397,7 @@ Begin DesktopContainer PermissionsBox
       TextAlignment   =   1
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   46
+      Top             =   55
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -429,7 +429,7 @@ Begin DesktopContainer PermissionsBox
       TextAlignment   =   1
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   11
+      Top             =   20
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -461,7 +461,7 @@ Begin DesktopContainer PermissionsBox
       TextAlignment   =   1
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   82
+      Top             =   91
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -506,7 +506,7 @@ Begin DesktopContainer PermissionsBox
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   46
+      Top             =   55
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -556,7 +556,7 @@ Begin DesktopContainer PermissionsBox
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   82
+      Top             =   91
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -606,7 +606,7 @@ Begin DesktopContainer PermissionsBox
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   11
+      Top             =   20
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -656,7 +656,7 @@ Begin DesktopContainer PermissionsBox
       TabPanelIndex   =   0
       TextColor       =   &c00000000
       Tooltip         =   ""
-      Top             =   11
+      Top             =   20
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -678,7 +678,7 @@ Begin DesktopContainer PermissionsBox
       Height          =   23
       Index           =   -2147483648
       Italic          =   False
-      Left            =   15
+      Left            =   16
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -689,7 +689,7 @@ Begin DesktopContainer PermissionsBox
       TabPanelIndex   =   0
       TabStop         =   True
       Tooltip         =   "All items contained in a directory will recieve the provided permissions"
-      Top             =   121
+      Top             =   139
       Transparent     =   False
       Underline       =   False
       Value           =   False
@@ -697,10 +697,64 @@ Begin DesktopContainer PermissionsBox
       VisualState     =   0
       Width           =   195
    End
+   Begin DesktopButton btn_ApplyPermissions
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "Apply"
+      Default         =   True
+      Enabled         =   True
+      FontName        =   "Liberation Serif"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   26
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   580
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockLeft        =   False
+      LockRight       =   True
+      LockTop         =   False
+      MacButtonStyle  =   0
+      Scope           =   0
+      TabIndex        =   16
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Tooltip         =   "Apply any changes to permissions and owners"
+      Top             =   158
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   80
+   End
 End
 #tag EndDesktopWindow
 
 #tag WindowCode
+	#tag Method, Flags = &h0
+		Sub ApplyPermissions()
+		  Var permissionChange As Boolean= CheckForChange
+		  
+		  Var newPermissions As String= MainScreen.cust_Permissions.lbl_OwnerPermDisplay.Text + _
+		  MainScreen.cust_Permissions.lbl_GroupPermDisplay.Text + _ 
+		  MainScreen.cust_Permissions.lbl_SystemPermDisplay.Text
+		  
+		  If(permissionChange) Then
+		    If(MainScreen.cust_Permissions.chk_ChildrenPermissions.Value) Then
+		      SetPermissions(loadedItem,newPermissions, True)
+		      MainScreen.cust_Header.lbl_CurrentPermDisplay.Text= _
+		      GetCurrentPermissions(loadedItem)
+		    Else
+		      SetPermissions(loadedItem,newPermissions, False)
+		      MainScreen.cust_Header.lbl_CurrentPermDisplay.Text= _
+		      GetCurrentPermissions(loadedItem)
+		    End
+		    LoggingHandler.UpdateLog("Permissions","APPLIED: Permissions Changed to " + newPermissions)
+		  End
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h21
 		Private Sub ButtonColorScan()
 		  // 4
@@ -908,6 +962,21 @@ End
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function CheckForChange() As Boolean
+		  Var newPermissions As String= MainScreen.cust_Permissions.lbl_OwnerPermDisplay.Text + _
+		  MainScreen.cust_Permissions.lbl_GroupPermDisplay.Text + _ 
+		  MainScreen.cust_Permissions.lbl_SystemPermDisplay.Text
+		  
+		  If(oldPermissions<>newPermissions) Then
+		    // System.DebugLog(oldPermissions + "=" + newPermissions)
+		    Return True
+		  Else
+		    Return False
+		  End
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub ClearChecks()
 		  // 4
 		  Self.btn_OwnerR.Value= False
@@ -925,6 +994,27 @@ End
 		  ButtonColorScan()
 		End Sub
 	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function GetCurrentPermissions(target as String) As String
+		  Return ShellCommand("stat -c ""%a"" "+target).Replace(EndOfLine,"")
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub SetPermissions(target as String, permissions as String, recursive as boolean)
+		  If(recursive) Then
+		    Utils.ShellCommand("chmod --recursive " + permissions + " " + target, True)
+		  Else
+		    Utils.ShellCommand("chmod " + permissions + " " + target, True)
+		  End
+		End Sub
+	#tag EndMethod
+
+
+	#tag Property, Flags = &h0
+		oldPermissions As String = "000"
+	#tag EndProperty
 
 
 #tag EndWindowCode
@@ -1052,6 +1142,13 @@ End
 		    Me.BackgroundColor= Color.RGB(255,30,30,255)
 		  End
 		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btn_ApplyPermissions
+	#tag Event
+		Sub Pressed()
+		  ApplyPermissions
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -1271,5 +1368,13 @@ End
 		InitialValue="False"
 		Type="Boolean"
 		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="oldPermissions"
+		Visible=false
+		Group="Behavior"
+		InitialValue="000"
+		Type="String"
+		EditorType="MultiLineEditor"
 	#tag EndViewProperty
 #tag EndViewBehavior

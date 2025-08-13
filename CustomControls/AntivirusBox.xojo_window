@@ -47,7 +47,7 @@ Begin DesktopContainer AntivirusBox
       TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "ClamAV Version:"
+      Text            =   "Software Version:"
       TextAlignment   =   0
       TextColor       =   &c000000
       Tooltip         =   ""
@@ -67,7 +67,7 @@ Begin DesktopContainer AntivirusBox
       Height          =   26
       Index           =   -2147483648
       Italic          =   False
-      Left            =   127
+      Left            =   135
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -87,7 +87,7 @@ Begin DesktopContainer AntivirusBox
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   154
+      Width           =   146
    End
    Begin DesktopCheckBox chk_UpdateOnScan
       AllowAutoDeactivate=   True
@@ -276,7 +276,7 @@ Begin DesktopContainer AntivirusBox
       FontName        =   "Liberation Sans"
       FontSize        =   0.0
       FontUnit        =   0
-      Height          =   26
+      Height          =   21
       Index           =   -2147483648
       Italic          =   False
       Left            =   20
@@ -295,7 +295,7 @@ Begin DesktopContainer AntivirusBox
       TextAlignment   =   1
       TextColor       =   &cCB680000
       Tooltip         =   ""
-      Top             =   156
+      Top             =   146
       Transparent     =   False
       Underline       =   True
       Visible         =   True
@@ -388,56 +388,111 @@ End
 #tag WindowCode
 	#tag Event
 		Sub Opening()
+		  CheckForClams
+		  
+		  If(clamLevel= 0) Then
+		    Self.chk_UpdateOnScan.Enabled= False
+		    Self.lbl_InstallCheck.Text="ClamAV IS NOT INSTALLED"
+		  Else
+		    If(clamLevel= 1) Then
+		      Self.lbl_VirusDBDisplay.Text= GetVersion("db")
+		      Self.lbl_ClamAVDisplay.Text= GetVersion("antivirus")
+		      Self.chk_UpdateOnScan.Enabled= False
+		      Self.lbl_InstallCheck.Text="ClamAV is missing freshclam component"
+		    End
+		    
+		    If(clamLevel>= 2) Then
+		      Self.lbl_VirusDBDisplay.Text= GetVersion("db")
+		      Self.lbl_ClamAVDisplay.Text= GetVersion("antivirus")
+		      Self.lbl_InstallCheck.Text="ClamAV is ready!"
+		      // Self.lbl_InstallCheck.Text="ClamAV is missing clamonacc component"
+		    End
+		    
+		    // If(clamLevel= 3) Then
+		    // 
+		    // End
+		  End
 		  
 		End Sub
 	#tag EndEvent
+
+
+	#tag Method, Flags = &h0
+		Sub ApplyScanSettings()
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub CheckForClams()
+		  If(Utils.ShellCommand("which clamd")<>"") Then
+		    clamLevel= 1
+		    
+		    If(Utils.ShellCommand("which freshclam")<>"") Then
+		      clamLevel= 2
+		    End
+		    
+		    If(Utils.ShellCommand("which clamonacc")<>"") Then
+		      clamLevel= 3
+		    End
+		  Else
+		    clamLevel= 0
+		  End
+		  
+		  
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function GetVersion(versionType as String) As String
+		  if(clamLevel> 0) Then
+		    Var rawVersion As String= Utils.ShellCommand("clamscan --version")
+		    Var versionArray() As String= rawVersion.Split("/")
+		    
+		    If(versionType.Lowercase="av" Or versionType.Lowercase="antivirus") Then
+		      Return versionArray(0)
+		    ElseIf(versionType.Lowercase="db" Or versionType.Lowercase="database") Then
+		      Return versionArray(1)
+		    Else
+		      Return versionArray(0)
+		    End
+		  End
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub UpdateDefinitions()
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub VirusScan(path as String, recursive as Boolean = false, update as Boolean = false)
+		  If(update) Then
+		    LoggingHandler.UpdateLog("Antivirus",Utils.ShellCommand("freshclam"))
+		  End
+		  
+		  If(recursive) Then
+		    LoggingHandler.UpdateLog("Antivirus",Utils.ShellCommand("clamd contscan " + path))
+		  Else
+		    LoggingHandler.UpdateLog("Antivirus",Utils.ShellCommand("clamd scan " + path))
+		  End
+		End Sub
+	#tag EndMethod
+
+
+	#tag Property, Flags = &h21
+		Private clamLevel As Integer = 0
+	#tag EndProperty
 
 
 #tag EndWindowCode
 
-#tag Events lbl_ClamAVDisplay
-	#tag Event
-		Sub Opening()
-		  me.Text= ClamHandler.GetVersion(True)
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events lbl_VirusDBDisplay
-	#tag Event
-		Sub Opening()
-		  Me.Text= ClamHandler.GetVersion(False)
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events lbl_InstallCheck
-	#tag Event
-		Sub Opening()
-		  Var myClamLevel As Integer= ClamHandler.GetClamLevel
-		  
-		  If(myClamLevel= 3) Then
-		    Me.Enabled= True
-		    Me.Visible= True
-		    Me.Text="ClamAV is ready!"
-		  ElseIf(myClamLevel= 1) Then
-		    Me.Enabled= True
-		    Me.Visible= True
-		    Me.Text="ClamAV is missing freshclam component"
-		  ElseIf(myClamLevel= 2) Then
-		    Me.Enabled= True
-		    Me.Visible= True
-		    Me.Text="ClamAV is missing clamonacc component"
-		  Else
-		    Me.Enabled= True
-		    Me.Visible= True
-		    Me.Text="ClamAV IS NOT INSTALLED"
-		  End
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag Events btn_Scan
 	#tag Event
 		Sub Pressed()
-		  ClamHandler.VirusScan(MainScreen.txt_FileSelected.Text, _
+		  VirusScan(App.selectedFile.NativePath, _
 		  Self.chk_RecursiveScan.Value, _
 		  Self.chk_UpdateOnScan.Value)
 		End Sub

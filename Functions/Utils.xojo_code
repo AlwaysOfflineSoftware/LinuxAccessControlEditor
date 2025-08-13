@@ -27,16 +27,16 @@ Protected Module Utils
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub GeneratePopup(typeCode as integer, message as String, explain as String)
+		Sub GeneratePopup(typeCode as String, message as String, explain as String)
 		  Var diag As New MessageDialog                  // declare the MessageDialog object
 		  Var clickItem As MessageDialogButton                // for handling the result
 		  
-		  Select Case typeCode
-		  Case 1
+		  Select Case typeCode.Lowercase
+		  Case "i"
 		    diag.IconType = MessageDialog.IconTypes.None
-		  Case 2
+		  Case "w"
 		    diag.IconType = MessageDialog.IconTypes.Caution
-		  Case 3
+		  Case "e"
 		    diag.IconType = MessageDialog.IconTypes.Stop
 		  Else
 		    diag.IconType = MessageDialog.IconTypes.Question
@@ -108,15 +108,15 @@ Protected Module Utils
 
 	#tag Method, Flags = &h0
 		Function ReadFile(filePath as folderItem) As String
-		  Var f As FolderItem= filePath
-		  Var t As TextInputStream
+		  Var file As FolderItem= filePath
+		  Var data As TextInputStream
 		  Var contents As String
 		  
-		  If(f <> Nil) Then
-		    t = TextInputStream.Open(f)
-		    t.Encoding = Encodings.UTF8 //specify encoding of input stream
-		    contents = t.ReadAll
-		    t.Close
+		  If(Utils.ValidatePath(filePath.NativePath)) Then
+		    data = TextInputStream.Open(file)
+		    data.Encoding = Encodings.UTF8 //specify encoding of input stream
+		    contents = data.ReadAll
+		    data.Close
 		    Return contents
 		  End
 		  
@@ -220,7 +220,7 @@ Protected Module Utils
 		    End
 		    
 		    If(cmd.ExitCode <> 0) Then
-		      GeneratePopup(3,"Shell Command Failed","The exit code is: " + cmd.ExitCode.ToString)
+		      GeneratePopup("e","Shell Command Failed","The exit code is: " + cmd.ExitCode.ToString)
 		    End If
 		    
 		  Else
@@ -232,7 +232,7 @@ Protected Module Utils
 		    End
 		    
 		    If(cmd.ExitCode <> 0) Then
-		      GeneratePopup(3,"Shell Command Failed","The exit code is: " + cmd.ExitCode.ToString)
+		      GeneratePopup("e","Shell Command Failed","The exit code is: " + cmd.ExitCode.ToString)
 		    End If
 		  End
 		  
@@ -255,7 +255,7 @@ Protected Module Utils
 		    End
 		    
 		    If(cmd.ExitCode <> 0) Then
-		      GeneratePopup(3,"Shell Command Failed","The exit code is: " + cmd.ExitCode.ToString)
+		      GeneratePopup("e","Shell Command Failed","The exit code is: " + cmd.ExitCode.ToString)
 		    End If
 		    
 		  Else
@@ -269,7 +269,7 @@ Protected Module Utils
 		    End
 		    
 		    If(cmd.ExitCode <> 0) Then
-		      GeneratePopup(3,"Shell Command Failed","The exit code is: " + cmd.ExitCode.ToString)
+		      GeneratePopup("e","Shell Command Failed","The exit code is: " + cmd.ExitCode.ToString)
 		    End If
 		  End
 		  
@@ -360,7 +360,7 @@ Protected Module Utils
 		    Binstream.Write(data)
 		    Binstream.Close
 		  Catch e As IOException
-		    GeneratePopup(2,"IO Issue writing file", "File could not be written to: ' + folder.URLPath + '")
+		    GeneratePopup("e","IO Issue writing file", "File could not be written to: ' + folder.URLPath + '")
 		  End Try
 		  
 		  
@@ -377,7 +377,7 @@ Protected Module Utils
 		    Binstream.Write(data)
 		    Binstream.Close
 		  Catch e As IOException
-		    GeneratePopup(2,"IO Issue writing file", "File could not be written to: ' + folder.URLPath + '")
+		    GeneratePopup("e","IO Issue writing file", "File could not be written to: ' + folder.URLPath + '")
 		  End Try
 		  
 		  
@@ -409,7 +409,7 @@ Protected Module Utils
 		      End If
 		    End
 		  Catch e As IOException
-		    GeneratePopup(2,"IO Issue writing file", "File could not be written to: ' + folder.URLPath + '")
+		    GeneratePopup("e","IO Issue writing file", "File could not be written to: ' + folder.URLPath + '")
 		  End Try
 		  
 		  
@@ -443,7 +443,7 @@ Protected Module Utils
 		      End If
 		    End
 		  Catch e As IOException
-		    GeneratePopup(2,"IO Issue writing file", "File could not be written to: ' + folder.URLPath + '")
+		    GeneratePopup("e","IO Issue writing file", "File could not be written to: ' + folder.URLPath + '")
 		  End Try
 		  
 		  

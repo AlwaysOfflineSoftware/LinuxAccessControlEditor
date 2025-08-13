@@ -1,5 +1,5 @@
 #tag DesktopWindow
-Begin DesktopContainer OwnerBox
+Begin DesktopContainer HeaderBox
    AllowAutoDeactivate=   True
    AllowFocus      =   False
    AllowFocusRing  =   False
@@ -9,7 +9,7 @@ Begin DesktopContainer OwnerBox
    Composited      =   False
    Enabled         =   True
    HasBackgroundColor=   False
-   Height          =   157
+   Height          =   106
    Index           =   -2147483648
    InitialParent   =   ""
    Left            =   0
@@ -22,62 +22,104 @@ Begin DesktopContainer OwnerBox
    TabStop         =   True
    Tooltip         =   ""
    Top             =   0
-   Transparent     =   True
+   Transparent     =   False
    Visible         =   True
-   Width           =   680
-   Begin DesktopCheckBox chk_ChildrenOwners
+   Width           =   806
+   Begin DesktopTextField txt_FileSelected
       AllowAutoDeactivate=   True
+      AllowFocusRing  =   True
+      AllowSpellChecking=   False
+      AllowTabs       =   False
+      BackgroundColor =   &cFFFFFF
       Bold            =   False
-      Caption         =   "Children Inherit Owners"
       Enabled         =   True
-      FontName        =   "Liberation Sans"
+      FontName        =   "Liberation Serif"
       FontSize        =   0.0
       FontUnit        =   0
-      Height          =   23
+      Format          =   ""
+      HasBorder       =   True
+      Height          =   27
+      Hint            =   ""
       Index           =   -2147483648
       Italic          =   False
-      Left            =   16
+      Left            =   118
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
-      LockRight       =   False
+      LockRight       =   True
       LockTop         =   True
+      MaximumCharactersAllowed=   0
+      Password        =   False
+      ReadOnly        =   False
+      Scope           =   0
+      TabIndex        =   0
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   ""
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   20
+      Transparent     =   False
+      Underline       =   False
+      ValidationMask  =   ""
+      Visible         =   True
+      Width           =   458
+   End
+   Begin DesktopButton btn_BrowseForDir
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Cancel          =   False
+      Caption         =   "Browse Directory"
+      Default         =   False
+      Enabled         =   True
+      FontName        =   "Liberation Serif"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   26
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   680
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   False
+      LockRight       =   True
+      LockTop         =   True
+      MacButtonStyle  =   0
       Scope           =   0
       TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
-      Tooltip         =   "All items contained in a directory will recieve the provided owner"
-      Top             =   98
+      Tooltip         =   "Browse to a file or directory you wish to modify"
+      Top             =   20
       Transparent     =   False
       Underline       =   False
-      Value           =   False
       Visible         =   True
-      VisualState     =   0
-      Width           =   163
+      Width           =   106
    End
-   Begin DesktopLabel _User
+   Begin DesktopLabel lbl_FileDirSelected
       AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
       FontName        =   "Liberation Serif"
       FontSize        =   0.0
       FontUnit        =   0
-      Height          =   27
+      Height          =   26
       Index           =   -2147483648
       Italic          =   False
-      Left            =   20
+      Left            =   26
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
       Multiline       =   False
-      Scope           =   0
+      Scope           =   2
       Selectable      =   False
       TabIndex        =   2
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "User"
+      Text            =   "File/Directory:"
       TextAlignment   =   0
       TextColor       =   &c000000
       Tooltip         =   ""
@@ -85,101 +127,114 @@ Begin DesktopContainer OwnerBox
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   56
+      Width           =   92
    End
-   Begin DesktopTextField txt_Group
+   Begin DesktopButton btn_BrowseForFile
       AllowAutoDeactivate=   True
-      AllowFocusRing  =   True
-      AllowSpellChecking=   False
-      AllowTabs       =   False
-      BackgroundColor =   &cFFFFFF
       Bold            =   False
+      Cancel          =   False
+      Caption         =   "Browse File"
+      Default         =   False
       Enabled         =   True
       FontName        =   "Liberation Serif"
       FontSize        =   0.0
       FontUnit        =   0
-      Format          =   ""
-      HasBorder       =   True
-      Height          =   27
-      Hint            =   ""
+      Height          =   26
       Index           =   -2147483648
       Italic          =   False
-      Left            =   81
+      Left            =   588
       LockBottom      =   False
       LockedInPosition=   False
-      LockLeft        =   True
+      LockLeft        =   False
       LockRight       =   True
       LockTop         =   True
-      MaximumCharactersAllowed=   0
-      Password        =   False
-      ReadOnly        =   False
+      MacButtonStyle  =   0
       Scope           =   0
       TabIndex        =   3
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   ""
+      Tooltip         =   "Browse to a file or directory you wish to modify"
+      Top             =   20
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   80
+   End
+   Begin DesktopLabel lbl_CurrentPermDisplay
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "Liberation Sans"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   26
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   747
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   False
+      LockRight       =   True
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   4
+      TabPanelIndex   =   0
+      TabStop         =   True
+      Text            =   "0 0 0"
       TextAlignment   =   0
       TextColor       =   &c000000
       Tooltip         =   ""
       Top             =   59
       Transparent     =   False
       Underline       =   False
-      ValidationMask  =   ""
       Visible         =   True
-      Width           =   579
+      Width           =   39
    End
-   Begin DesktopTextField txt_Owner
+   Begin DesktopLabel lbl_CurrentPermissions
       AllowAutoDeactivate=   True
-      AllowFocusRing  =   True
-      AllowSpellChecking=   False
-      AllowTabs       =   False
-      BackgroundColor =   &cFFFFFF
       Bold            =   False
       Enabled         =   True
-      FontName        =   "Liberation Serif"
+      FontName        =   "Liberation Sans"
       FontSize        =   0.0
       FontUnit        =   0
-      Format          =   ""
-      HasBorder       =   True
-      Height          =   27
-      Hint            =   ""
+      Height          =   26
       Index           =   -2147483648
       Italic          =   False
-      Left            =   81
+      Left            =   603
       LockBottom      =   False
       LockedInPosition=   False
-      LockLeft        =   True
+      LockLeft        =   False
       LockRight       =   True
       LockTop         =   True
-      MaximumCharactersAllowed=   0
-      Password        =   False
-      ReadOnly        =   False
-      Scope           =   0
-      TabIndex        =   4
+      Multiline       =   False
+      Scope           =   2
+      Selectable      =   False
+      TabIndex        =   5
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   ""
+      Text            =   "Current Permissions:"
       TextAlignment   =   0
       TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   20
+      Top             =   59
       Transparent     =   False
       Underline       =   False
-      ValidationMask  =   ""
       Visible         =   True
-      Width           =   579
+      Width           =   132
    End
-   Begin DesktopLabel _Group
+   Begin DesktopLabel lbl_OwnerCurrent
       AllowAutoDeactivate=   True
       Bold            =   False
       Enabled         =   True
       FontName        =   "Liberation Serif"
       FontSize        =   0.0
       FontUnit        =   0
-      Height          =   27
+      Height          =   26
       Index           =   -2147483648
       Italic          =   False
-      Left            =   20
+      Left            =   118
       LockBottom      =   False
       LockedInPosition=   False
       LockLeft        =   True
@@ -191,6 +246,38 @@ Begin DesktopContainer OwnerBox
       TabIndex        =   6
       TabPanelIndex   =   0
       TabStop         =   True
+      Text            =   "Owner"
+      TextAlignment   =   0
+      TextColor       =   &c000000
+      Tooltip         =   ""
+      Top             =   58
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   235
+   End
+   Begin DesktopLabel lbl_GroupCurrent
+      AllowAutoDeactivate=   True
+      Bold            =   False
+      Enabled         =   True
+      FontName        =   "Liberation Serif"
+      FontSize        =   0.0
+      FontUnit        =   0
+      Height          =   27
+      Index           =   -2147483648
+      Italic          =   False
+      Left            =   365
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Multiline       =   False
+      Scope           =   0
+      Selectable      =   False
+      TabIndex        =   7
+      TabPanelIndex   =   0
+      TabStop         =   True
       Text            =   "Group"
       TextAlignment   =   0
       TextColor       =   &c000000
@@ -199,142 +286,132 @@ Begin DesktopContainer OwnerBox
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   49
+      Width           =   226
    End
-   Begin DesktopButton btn_ApplyOwnership
+   Begin DesktopButton btn_Clear
       AllowAutoDeactivate=   True
       Bold            =   False
       Cancel          =   False
-      Caption         =   "Apply"
-      Default         =   True
+      Caption         =   "Clear"
+      Default         =   False
       Enabled         =   True
-      FontName        =   "Liberation Serif"
+      FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
       Height          =   26
       Index           =   -2147483648
       Italic          =   False
-      Left            =   580
-      LockBottom      =   True
+      Left            =   20
+      LockBottom      =   False
       LockedInPosition=   False
-      LockLeft        =   False
-      LockRight       =   True
-      LockTop         =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
       MacButtonStyle  =   0
       Scope           =   0
-      TabIndex        =   7
+      TabIndex        =   8
       TabPanelIndex   =   0
       TabStop         =   True
-      Tooltip         =   "Apply any changes to permissions and owners"
-      Top             =   111
+      Tooltip         =   ""
+      Top             =   59
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   80
+      Width           =   73
    End
 End
 #tag EndDesktopWindow
 
 #tag WindowCode
-	#tag Method, Flags = &h0
-		Sub ApplyOwnerGroup()
-		  Var newOwner As String= MainScreen.cust_Owner.txt_Owner.Text
-		  Var newGroup As String= MainScreen.cust_Owner.txt_Group.Text
-		  
-		  If(CheckForChange) Then
-		    If(MainScreen.cust_Owner.chk_ChildrenOwners.Value) Then
-		      setOwner(loadedItem,newOwner,newGroup, True)
-		    Else
-		      setOwner(loadedItem,newOwner,newGroup, False)
-		    End
-		    LoggingHandler.UpdateLog("Owner","APPLIED: Owner Change")
-		  End
-		  
-		  
-		End Sub
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function CheckForChange() As Boolean
-		  Var newOwner As String= MainScreen.cust_Owner.txt_Owner.Text
-		  Var newGroup As String= MainScreen.cust_Owner.txt_Group.Text
-		  
-		  If(oldOwner<>newOwner) Then
-		    // System.DebugLog(oldOwner + "=" + newOwner)
-		    Return True
-		  End
-		  
-		  If(oldGroup<>newGroup) Then 
-		    // System.DebugLog(oldGroup + "=" + newGroup)
-		    Return True
-		  End
-		  
-		  Return False
-		  
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Function GetCurrentOwner(target as String) As String()
-		  //Get Owner and Group
-		  Var ownerArr() As String= ShellCommand("stat -c ""%U|%G"" "+target).Split("|")
-		  ownerArr(1)=ownerArr(1).Replace(EndOfLine,"")
-		  
-		  Return ownerArr
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
-		Sub SetOwner(target as String, owner as string, group as string, recursive as Boolean)
-		  // System.DebugLog("chown " + owner + ":" + group)
-		  
-		  If(recursive) Then
-		    Utils.ShellCommand("chown -r " + owner + ":" + group + " " + target, True)
-		  Else
-		    Utils.ShellCommand("chown " + owner + ":" + group + " " + target, True)
-		  End
-		  
-		End Sub
-	#tag EndMethod
-
-
-	#tag Property, Flags = &h0
-		oldGroup As String
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		oldOwner As String
-	#tag EndProperty
-
-
 #tag EndWindowCode
 
-#tag Events txt_Group
+#tag Events txt_FileSelected
+	#tag Event
+		Function KeyDown(key As String) As Boolean
+		  If((Key = Chr(3) Or Key = Chr(13)) And Me.Text<>"") Then
+		    Lace.LoadFileToEditor(me.Text)
+		  ElseIf((Key = Chr(3) Or Key = Chr(13)) And Me.Text="") Then
+		    MainScreen.cust_Permissions.clearChecks
+		    MainScreen.cust_Owner.txt_Owner.Text=""
+		    MainScreen.cust_Owner.txt_Group.Text=""
+		  End
+		  
+		  
+		End Function
+	#tag EndEvent
 	#tag Event
 		Sub TextChanged()
-		  If(oldGroup<>Me.Text) Then
-		    _Group.Text="Group*"
+		  If(Utils.ValidatePath(Me.Text) And Me.Text.CountFields("/")>= 3) Then
+		    MainScreen.cust_Passwords.btn_DecryptFile.Enabled= True
+		    MainScreen.cust_Passwords.btn_EncyptFile.Enabled= True
+		    
+		    MainScreen.cust_Sandbox.CheckForApp
 		  Else
-		    _Group.Text="Group"
+		    MainScreen.cust_Passwords.btn_DecryptFile.Enabled= False
+		    MainScreen.cust_Passwords.btn_EncyptFile.Enabled= False
 		  End
+		  
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events txt_Owner
-	#tag Event
-		Sub TextChanged()
-		  If(oldOwner<>Me.Text) Then
-		    _User.Text="User*"
-		  Else
-		    _User.Text="User"
-		  End
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btn_ApplyOwnership
+#tag Events btn_BrowseForDir
 	#tag Event
 		Sub Pressed()
-		  ApplyOwnerGroup
+		  ClearGui
+		  App.SelectedFile= Utils.SelectTargetDialog("home",True)
+		  
+		  If(App.SelectedFile<>Nil) Then
+		    txt_FileSelected.Text= App.SelectedFile.NativePath
+		    
+		    //last
+		    If(Self.txt_FileSelected.Text<>"") Then
+		      Lace.LoadFileToEditor(txt_FileSelected.Text)
+		    ElseIf(Self.txt_FileSelected.Text="") Then
+		      MainScreen.cust_Permissions.clearChecks
+		      MainScreen.cust_Owner.txt_Owner.Text=""
+		      MainScreen.cust_Owner.txt_Group.Text=""
+		    End
+		    
+		    MainScreen.cust_Owner._User.Text="User"
+		    MainScreen.cust_Owner._Group.Text="Group"
+		    LoggingHandler.UpdateLog("LACE","Loaded: " + App.SelectedFile.NativePath)
+		  End
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btn_BrowseForFile
+	#tag Event
+		Sub Pressed()
+		  ClearGui
+		  App.SelectedFile= Utils.SelectTargetDialog("home",False)
+		  
+		  If(App.SelectedFile<>Nil) Then
+		    txt_FileSelected.Text= App.SelectedFile.NativePath
+		    
+		    //last
+		    If(Self.txt_FileSelected.Text<>"") Then
+		      Lace.LoadFileToEditor(txt_FileSelected.Text)
+		    ElseIf(Self.txt_FileSelected.Text="") Then
+		      MainScreen.cust_Permissions.clearChecks
+		      MainScreen.cust_Owner.txt_Owner.Text=""
+		      MainScreen.cust_Owner.txt_Group.Text=""
+		    End
+		    
+		    MainScreen.cust_Owner._User.Text="User"
+		    MainScreen.cust_Owner._Group.Text="Group"
+		    LoggingHandler.UpdateLog("LACE","Loaded: " + App.SelectedFile.NativePath)
+		  End
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btn_Clear
+	#tag Event
+		Sub Pressed()
+		  Lace.ClearGui
+		  MainScreen.cust_Passwords.btn_DecryptFile.Enabled= False
+		  MainScreen.cust_Passwords.btn_EncyptFile.Enabled= False
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -543,7 +620,7 @@ End
 		Name="Transparent"
 		Visible=true
 		Group="Behavior"
-		InitialValue="True"
+		InitialValue="False"
 		Type="Boolean"
 		EditorType=""
 	#tag EndViewProperty
@@ -554,21 +631,5 @@ End
 		InitialValue="False"
 		Type="Boolean"
 		EditorType=""
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="oldGroup"
-		Visible=false
-		Group="Behavior"
-		InitialValue=""
-		Type="String"
-		EditorType="MultiLineEditor"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="oldOwner"
-		Visible=false
-		Group="Behavior"
-		InitialValue=""
-		Type="String"
-		EditorType="MultiLineEditor"
 	#tag EndViewProperty
 #tag EndViewBehavior

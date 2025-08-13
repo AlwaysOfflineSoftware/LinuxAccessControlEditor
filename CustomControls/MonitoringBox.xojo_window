@@ -1,5 +1,5 @@
 #tag DesktopWindow
-Begin DesktopContainer LogsBox
+Begin DesktopContainer MonitoringBox
    AllowAutoDeactivate=   True
    AllowFocus      =   False
    AllowFocusRing  =   False
@@ -9,13 +9,13 @@ Begin DesktopContainer LogsBox
    Composited      =   False
    Enabled         =   True
    HasBackgroundColor=   False
-   Height          =   351
+   Height          =   468
    Index           =   -2147483648
    InitialParent   =   ""
    Left            =   0
-   LockBottom      =   False
+   LockBottom      =   True
    LockLeft        =   True
-   LockRight       =   False
+   LockRight       =   True
    LockTop         =   True
    TabIndex        =   0
    TabPanelIndex   =   0
@@ -24,8 +24,8 @@ Begin DesktopContainer LogsBox
    Top             =   0
    Transparent     =   False
    Visible         =   True
-   Width           =   820
-   Begin DesktopListBox lsb_LaceLog
+   Width           =   902
+   Begin DesktopListBox lsb_BlameList
       AllowAutoDeactivate=   True
       AllowAutoHideScrollbars=   True
       AllowExpandableRows=   False
@@ -34,23 +34,23 @@ Begin DesktopContainer LogsBox
       AllowRowDragging=   False
       AllowRowReordering=   False
       Bold            =   False
-      ColumnCount     =   3
-      ColumnWidths    =   "120,420,180"
+      ColumnCount     =   2
+      ColumnWidths    =   "100,520"
       DefaultRowHeight=   -1
       DropIndicatorVisible=   False
       Enabled         =   True
       FontName        =   "System"
       FontSize        =   0.0
       FontUnit        =   0
-      GridLineStyle   =   1
+      GridLineStyle   =   3
       HasBorder       =   True
       HasHeader       =   True
-      HasHorizontalScrollbar=   False
+      HasHorizontalScrollbar=   True
       HasVerticalScrollbar=   True
       HeadingIndex    =   -1
-      Height          =   273
+      Height          =   331
       Index           =   -2147483648
-      InitialValue    =   "Tool	Event	Time Stamp"
+      InitialValue    =   "Start-Up Time	App/Service"
       Italic          =   False
       Left            =   20
       LockBottom      =   True
@@ -69,56 +69,99 @@ Begin DesktopContainer LogsBox
       Transparent     =   False
       Underline       =   False
       Visible         =   True
-      Width           =   773
+      Width           =   862
       _ScrollOffset   =   0
       _ScrollWidth    =   -1
    End
-   Begin DesktopButton btn_ExportLogs
+   Begin DesktopTextArea txa_Summary
       AllowAutoDeactivate=   True
+      AllowFocusRing  =   True
+      AllowSpellChecking=   False
+      AllowStyledText =   True
+      AllowTabs       =   False
+      BackgroundColor =   &cFFFFFF
       Bold            =   False
-      Cancel          =   False
-      Caption         =   "Export Logs"
-      Default         =   False
       Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
+      FontName        =   "Liberation Sans"
+      FontSize        =   16.0
       FontUnit        =   0
-      Height          =   26
+      Format          =   ""
+      HasBorder       =   True
+      HasHorizontalScrollbar=   False
+      HasVerticalScrollbar=   True
+      Height          =   77
+      HideSelection   =   True
       Index           =   -2147483648
       Italic          =   False
-      Left            =   699
+      Left            =   20
+      LineHeight      =   0.0
+      LineSpacing     =   1.0
       LockBottom      =   True
       LockedInPosition=   False
-      LockLeft        =   False
+      LockLeft        =   True
       LockRight       =   True
       LockTop         =   False
-      MacButtonStyle  =   0
+      MaximumCharactersAllowed=   0
+      Multiline       =   True
+      ReadOnly        =   True
       Scope           =   0
       TabIndex        =   1
       TabPanelIndex   =   0
       TabStop         =   True
+      Text            =   "Systemd-analyze is required to use monitoring functionality"
+      TextAlignment   =   1
+      TextColor       =   &c000000
       Tooltip         =   ""
-      Top             =   305
+      Top             =   371
       Transparent     =   False
       Underline       =   False
+      UnicodeMode     =   1
+      ValidationMask  =   ""
       Visible         =   True
-      Width           =   94
+      Width           =   862
    End
 End
 #tag EndDesktopWindow
 
 #tag WindowCode
-#tag EndWindowCode
-
-#tag Events btn_ExportLogs
 	#tag Event
-		Sub Pressed()
-		  LoggingHandler.ExportLog("Log_"+ DateTime.Now.Year.ToString+ DateTime.Now.Month.ToString+_
-		  DateTime.Now.Day.ToString+ "_"+ DateTime.Now.Hour.ToString+ DateTime.Now.Minute.ToString+_ 
-		  DateTime.Now.Second.ToString+ ".txt")
+		Sub Opening()
+		  Self.txa_Summary.Text= "Your System " + CheckBootSummary.Trim
+		  CheckBootBlame()
+		  LoggingHandler.UpdateLog("SystemD", "Retrieved startup stats")
+		  
 		End Sub
 	#tag EndEvent
-#tag EndEvents
+
+
+	#tag Method, Flags = &h0
+		Sub CheckBootBlame()
+		  If(Utils.ShellCommand("which systemd-analyze")<>"") Then
+		    Var rawBlame as String= Utils.ShellCommand("systemd-analyze blame")
+		    Var linesOfBlame() As String= rawBlame.Split(EndOfLine)
+		    
+		    
+		    For Each line As String In linesOfBlame
+		      // System.DebugLog(line)
+		      Self.lsb_BlameList.AddRow(line.Trim.Split(" "))
+		    Next
+		  End
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function CheckBootSummary() As String
+		  if(Utils.ShellCommand("which systemd-analyze")<>"") Then
+		    Return Utils.ShellCommand("systemd-analyze")
+		  End
+		  
+		End Function
+	#tag EndMethod
+
+
+#tag EndWindowCode
+
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="Name"
